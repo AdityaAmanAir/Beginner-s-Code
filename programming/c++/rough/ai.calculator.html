@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apple-Style Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .calculator {
+            width: 250px;
+            margin: 50px auto;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .display {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 24px;
+            text-align: right;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        
+        .button {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #f2f2f2;
+        }
+        
+        .button:active {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="button" id="clear">C</button>
+            <button class="button" id="backspace">&larr;</button>
+            <button class="button" id="percentage">%</button>
+            <button class="button" id="divide">&divide;</button>
+            <button class="button" id="seven">7</button>
+            <button class="button" id="eight">8</button>
+            <button class="button" id="nine">9</button>
+            <button class="button" id="multiply">&times;</button>
+            <button class="button" id="four">4</button>
+            <button class="button" id="five">5</button>
+            <button class="button" id="six">6</button>
+            <button class="button" id="subtract">&minus;</button>
+            <button class="button" id="one">1</button>
+            <button class="button" id="two">2</button>
+            <button class="button" id="three">3</button>
+            <button class="button" id="add">&plus;</button>
+            <button class="button" id="zero">0</button>
+            <button class="button" id="decimal">.</button>
+            <button class="button" id="equals">&equals;</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+        let currentNumber = '';
+        let previousNumber = '';
+        let operation = '';
+
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.textContent;
+
+                switch (value) {
+                    case 'C':
+                        currentNumber = '';
+                        previousNumber = '';
+                        operation = '';
+                        display.textContent = '0';
+                        break;
+                    case '&larr;':
+                        currentNumber = currentNumber.slice(0, -1);
+                        display.textContent = currentNumber || '0';
+                        break;
+                    case '%':
+                    case '&divide;':
+                    case '&times;':
+                    case '&minus;':
+                    case '&plus;':
+                        operation = value;
+                        previousNumber = currentNumber;
+                        currentNumber = '';
+                        break;
+                    case '=':
+                        if (previousNumber && operation) {
+                            const result = calculate(previousNumber, currentNumber, operation);
+                            display.textContent = result;
+                            previousNumber = '';
+                            currentNumber = result;
+                            operation = '';
+                        }
+                        break;
+                    default:
+                        currentNumber += value;
+                        display.textContent = currentNumber;
+                }
+            });
+        });
+
+        function calculate(num1, num2, operation) {
+            num1 = parseFloat(num1);
+            num2 = parseFloat(num2);
+
+            switch (operation) {
+                case '%':
+                    return (num1 / 100) * num2;
+                case '&divide;':
+                    return num1 / num2;
+                case '&times;':
+                    return num1 * num2;
+                case '&minus;':
+                    return num1 - num2;
+                case '&plus;':
+                    return num1 + num2;
+                default:
+                    return 0;
+            }
+        }
+    </script
