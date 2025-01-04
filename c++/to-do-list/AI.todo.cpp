@@ -1,3 +1,6 @@
+// gcc your_program.c -o your_program `pkg-config --cflags --libs gtk+-3.0`
+
+
 #include <gtk/gtk.h>
 #include <iostream>
 #include <vector>
