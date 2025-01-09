@@ -11,5 +11,4 @@ int main() {
 	        x=0;
 	    }
 	} cout<<p;
-
 }
