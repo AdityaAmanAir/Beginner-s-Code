@@ -1,4 +1,3 @@
-/*---------------------------------------------*
 
 #include <iostream>
 #include <cmath>
@@ -20,6 +19,10 @@ int main() //std means standerd it represent that the globle object such as cout
     int d = -4;          // int has 4 bytes i.e 32 bits i.e 2^32 data (1 or 0)
     int x =0, y= -1, z=100;
     int m=1 , n =2, o =3 , p= 5, q= 7;
+
+    //if you need to set the value of a variable as constant and it should not change through out the program than use const int uid = 65069960
+
+    const int uid = 65069960;
                            // char has 1 byte
     cout << a <<endl;
     cout << b << "\n" ;    // Don't forget to terminate the sentence by using ;
@@ -94,7 +97,7 @@ cout << (5/(double)2) << endl; // ans was 2.5 because it has int / double i.e do
  int w = m++ ;  //w =2 , and m will become 3
  cout << w << m ; // if you wrote cout << w, m ; the compiler will print only w and not m because you didnot use <<
  
- // Conditional Staements [(if-else) syntax (rules), ()]
+    // Conditional Staements [(if-else) syntax (rules), ()]
 
  if (age>=18){ 
     cout << endl << "You are a adult"<< endl;
@@ -108,8 +111,8 @@ cout << (5/(double)2) << endl; // ans was 2.5 because it has int / double i.e do
     cout << "\nYou are a minor, I will not tell what kind of number is your age\n";
  }
  cout << (int)Grade << "\n"; 
-// ternary statement
-// condition ? stt1 : strr2    stt1 will be printed if conditon is true  else if the the conditio is false it will print strr
+    // ternary statement
+    // condition ? stt1 : strr2    stt1 will be printed if conditon is true  else if the the conditio is false it will print strr
  
  string gg;
  string _no = "no";
@@ -148,8 +151,7 @@ cout << ('Z'-'A')<<"\n";
 cout << ++A << endl;
     return 0;
 
-}  --------------------------------------------------*/
-/*--------------------------------------------------------
+} 
 #include <iostream>
 using namespace std;
 
@@ -174,29 +176,25 @@ int main() //This is called a funcion whose type is int
         // here printAdi() did not have any type so printing the function will show error!
     cout << asd << " " << printAdi << endl; // if () are not put after the function name the it will return the value 1, regardless of it data type;
 
-// if we try to store the funcion in an variable the the value stored in the variable will be the return value of the function;
+// if we try to store the funcion in an variable the the value stored in the variable will be the return value of the function; */
 int zzc = asd(); // int function's  without ()'s  has defalt return value 1 but if we try to store in an variable it will show an error & funcion without data type (void) will also show error;
 cout << zzc<< endl;
-// if we call return statement in the function , no command after it will be exucuted;
+    // if we call return statement in the function , no command after it will be exucuted;
 
-// Function Synthax
+    // Function Synthax
 
-// returntype functionName (Type paraeters 1, type parameater 2, ...){
- //   do the work/ task     }
+    // returntype functionName (Type paraeters 1, type parameater 2, ...){
+    //   do the work/ task     }
 
- // redundancy is the sign of a BAD programmer, redundancy means unnecessary repetation of code/ work .
+    // redundancy is the sign of a BAD programmer, redundancy means unnecessary repetation of code/ work .
 
- /*Function in memory 
+/*Function in memory 
  
- Memory are of two types : Call Stack and Heep;
- 
- call stack (memory) < stacl frame() i.e functions eg main, sum, printAdi,... stack is like book upon book upon book... that is stack and book is called stack frame and each frame contain function , upper book (stack frame) contain other function;   */
+    Memory are of two types : Call Stack and Heep;
+    call stack (memory) < stacl frame() i.e functions eg main, sum, printAdi,... stack is like book upon book upon book... that is stack and book is called stack frame and each frame contain function , upper book (stack frame) contain other function;   
 
- // Pass by Value;
-/*-----------------------------------------------
+ // Pass by Value; */
 
-
- 
     return 0;
 }
 
@@ -224,8 +222,7 @@ int main(){
  testfun();
  cout  << testfun();
     return 0;
-}}-----------------------------------------------*/
-/*------------------------------------------------
+}}
 #include <iostream>
 using namespace std;
 void fun (){
@@ -237,6 +234,13 @@ fun();
 cout << c <endl;
     return 0;
 }
-----------------------------------------------*/ //this example shows that the fuction is invald out side the function , anf if we try to call the fumction it will show the error that the variable is not defined!            what happen her is that the memory in the stack get errased 
-Binary number
-decimal to bunary conversion can be done by storing question and remender in memeory
+        //this example shows that the fuction is invald out side the function , anf if we try to call the fumction it will show the error that the variable is not defined!            what happen her is that the memory in the stack get errased  
+//Binary number
+        //decimal to bunary conversion can be done by storing question and remender in memeory
+//----decimal to binary
+//----binary to Decimal
+//----binary to hexa
+//----hexa to binary
+//----decimal to hexa 
+//----hexa to decimal
+/*To convert decimal to binary then we have to do repeated division or 2 and finds its remender untill we get 0 in questant  */
