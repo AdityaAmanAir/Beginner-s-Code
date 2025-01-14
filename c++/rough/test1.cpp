@@ -11,6 +11,9 @@ using namespace std; // Boilerplate code,    #include <iostram>
 int main() //std means standerd it represent that the globle object such as cout is taken from standerd convension, std::cout, std::endl, using namespace std;
 {                      // >>, << are called overloaded operators 
     
+    cout<<"Hello World\n";
+    printf("Omg World");
+
     
     cout << "My name is Aditya \n Aman" <<"\n"; // <<"\n" is faster then <<endl
     int a = 2147483649; // I observed that if I write a = from -2147483649 to +212147483647 it display same, but from 2147483648 to 4294967296 the vale get started from -1 to -2147483648, apart from this it shows format error which is obvious because 4 bytes of space 1 byte store 8 bits that is 32, emplies 2^32 data space
