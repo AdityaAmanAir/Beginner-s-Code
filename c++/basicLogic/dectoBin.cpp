@@ -8,7 +8,7 @@ int dtob (int num) {
     r=(q*(t))+r;
     t*=10;
     }
-    return r;
+    return r; //binary form
 }
 int main(){
 int n;
