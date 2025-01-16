@@ -1,8 +1,11 @@
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-using namespace std;
-int main(){
-    cout<<"Hello World\n";
-    printf("Omg World");
-}
+    #include<bits/stdc++.h>
+    using namespace std;
+    int main(){
+        int n,k,s=1;
+        cin>>n>>k;
+        while (k--)
+        {
+            s*=n;
+        }
+        cout<<s;
+    }
