@@ -240,10 +240,69 @@ cout << c <endl;
         //this example shows that the fuction is invald out side the function , anf if we try to call the fumction it will show the error that the variable is not defined!            what happen her is that the memory in the stack get errased  
 //Binary number
         //decimal to bunary conversion can be done by storing question and remender in memeory
-//----decimal to binary
-//----binary to Decimal
-//----binary to hexa
-//----hexa to binary
-//----decimal to hexa 
-//----hexa to decimal
+//----decimal to binary   ->  find LCM with 2 (binary) take remenders as the vales of the number in binary system , ## arrange remender from down to up direction!
+//----binary to Decimal   ->  binary digits * 2^(digit's position - 1) 
+//----binary to hexa       -> remember the base 0 to 7 , seprate the given number in the set of 4 digits and distinguish the number...
+//----hexa to binary        -> vice versa
+//----decimal to hexa        -> same but with hexa base
+//----hexa to decimal         -> same but with hexa base
 /*To convert decimal to binary then we have to do repeated division or 2 and finds its remender untill we get 0 in questant  */
+
+//Two's compliment 
+/* In just a simple word : we store negative numbers in different way because the old system was not fitting with the calculation!! :) 2nd reaseon was the old system also had a problem of +0 and -0;
+
+1st -- Define the number of bits , eg 1,2,3,4,etc..
+2nd -- Define the 1st most bit ... example : lets us define a 5 bit -> _ _ _ _ _ -> the first most (MSB) will be reserved for sign , which means only 4 bits are mathematicaly operatable, 0 = + and 1 = - for the 1st bit. eg is 01010 i.e 10 in decimal 
+3rd -- Inter change the bits value i.e. 1 to 0 and 0 to 1, eg -> 01010 become 10101
+4th -- add +1 to it eg. -> 10101 becomes 10110
+10110 is  -10 in decimal
+
+NOTE ### 
+if -10 was not 5 in bit, then the vales whould be different 
+if it was 8 bit system then the vale of -10 would have = 11110101
+
+MY LOGIC ###
+The scientist just inverted the order of number i.e. 0,1,2,3,4,5,6,7,8,9 = 0,9,8,7,6,5,4,3,2,1 respectively 
+
+given below will make it clear :-
+
+5 bit binary system
+
+    
+10001 = -15
+10010 = -14
+    .
+    .
+    .
+11101 = -3
+11110 = -2
+11111 = -1
+00000 =  0
+00001 = +1
+00010 = +2
+00011 = +3
+    .
+    .
+    .
+01110 = +14
+01111 = +15
+10000 = -16 
+10001 = -15
+10010 = -14
+    .
+    .
+    .
+11110 = -2
+11111 = -1
+00000 =  0
+00001 = +1
+00010 = +2
+    .
+    .
+    .    
+MSB = Most Significant Bit (The left most bit which desides the sign +/- of number)
+
+    borrowing / carring +1 fits in the system hence no calculation mistake :)
+*/
+
+//BITWISE OPERATORS
