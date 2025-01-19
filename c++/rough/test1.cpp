@@ -306,3 +306,133 @@ MSB = Most Significant Bit (The left most bit which desides the sign +/- of numb
 */
 
 //BITWISE OPERATORS
+// operaters which works with the bits... 
+/* --Bitwise & (AND)
+   --Bitwise | (OR)
+   --Bitwise  ^ (XOR)
+   --Bitwise ~ (NOT) 
+   --Bitwise << (Left shift)
+   --Bitwise << (Right shift)*/
+
+
+/*
+Bitwise & (AND)
+0,0  0
+0,1  0
+1,0  0
+1,1  1
+
+eg
+(4 & 12)
+4  = ...0100
+12 = ...1100
+     ...0100 = 4
+
+eg
+(4 & 8)
+4 = ...0100
+8 = ...1000
+    ...0000 = 0       
+
+Bitwise | (OR)
+0,0  0
+0,1  1
+1,0  1
+1,1  1
+
+eg
+(4 | 12)
+4  = ...0100
+12 = ...1100
+     ...1100 = 12  
+eg
+(4 | 8)
+4 = ...0100
+8 = ...1000
+    ...1100 = 12     
+
+Bitwise  ^ (XOR)
+0,0  0
+0,1  1
+1,0  1
+1,1  0
+
+eg
+(4 ^ 12)
+4  = ...0100
+12 = ...1100
+     ...1000 = 8
+
+Bitwise ~ (NOT)
+0  1
+0  1
+1  0
+1  0
+
+eg
+20=   0...0010100
+~20=  1...1101011 = -21
+
+--Bitwise << (Left shift)
+if i write : n<<i
+the bits of n will shift i places towards left, mathematically n*2^i
+
+eg
+10 = 1010
+10<<2
+101000 = 40
+
+eg
+11 = 1011
+11<<3
+101100 = 44
+
+   --Bitwise << (Right shift)
+
+if i write : n>>i
+the bits of n will shift i places towards right, mathematically n/2^i
+eg
+10 = 1010
+10>>1
+101 = 5
+
+eg
+11 = 1011
+11>>3
+101 = 5
+
+##NOTE## MSB are not affected by left or right shift operator 
+
+*/
+ 
+ //SCOPE : area of variable
+
+/* --Local scope 
+-- global scope */
+
+#include <bits/stdc++.h>
+using namespace std;
+int Y =120 // this is in global scope
+int main(){
+int x = 420; // this is in local scope
+if(X=420){
+
+    int C= 0; // this is in local scope
+}
+    return 0;
+}
+// DATA TYPE MODIFIER
+/* To change the meaning of exesting data type by using modifiers
+
+--long = will give >=4 bits = 8 byte
+--short = will make it of 2 bytes
+--long long
+--signed = by defalt all the number comes with MSB 
+--unsigned = will remove the MSB and make it unsigned, this is done general due tho increase the space. 
+
+NOTE##*/
+#include <iostream>
+using namespace std;
+unsigned int x = -10;
+cout<<x;// since it is a unsigned data there for the output will be : 4294967286 , these come from adding + 2^32 with -10 because the bit which was responsible for storing value will be taken to consideratin in the calculation...
+// -10 = 10 + 2^(size data type in bit or 8*Bytes)
