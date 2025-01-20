@@ -8,8 +8,13 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
+<<<<<<< HEAD
       "cwd": "/home/aditya-aman/programming2024/c++/rough",
       "program": "/home/aditya-aman/programming2024/c++/rough/build/Debug/outDebug",
+=======
+      "cwd": "/workspaces/Cpp-Beginner-s-Code/c++/basicLogic",
+      "program": "/workspaces/Cpp-Beginner-s-Code/c++/basicLogic/build/Debug/outDebug",
+>>>>>>> c81682867fb57cae7705a04a994e4e4c290fe751
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

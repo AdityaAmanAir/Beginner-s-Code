@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     #include <bits/stdc++.h>
     using namespace std;
     int main(){
@@ -10,3 +11,12 @@
         }
         return 0;
     }
+=======
+    #include<bits/stdc++.h>
+    using namespace std;
+    int main(){
+    int a =20;
+    cout<<~a;
+    }
+    
+>>>>>>> c81682867fb57cae7705a04a994e4e4c290fe751
