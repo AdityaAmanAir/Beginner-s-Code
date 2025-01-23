@@ -1,0 +1,9 @@
+l=11
+l/=3
+print(l)
+y=11
+y//=3
+print(y)
+b=3
+b**=2
+print(b)

@@ -20,7 +20,7 @@ print("World!") #it is use to print the string
 #it is use to print the string with the end
 print("Hello, World!", end="\n") #it is use to print the string with the end
 #it is use to print the string with the end
-print("Hello, World!", end="\t") #it is use to print the string with the end
+print("Hello, World!", end="\t")   t for tab      #it is use to print the string with the end
 print("Hello, World!", end="\r") #it is use to print the string with the end
 print("Hello, World!", end="\b") #it is use to print the string with the end
 print("Hello, World!", end="\f") #it is use to print the string with th
@@ -269,5 +269,46 @@ print(a << b)
 print(a == b)
 50. !=
 print(a != b)
+
+string function
+----------------
+stringName = "Hi i am aditya aman"
+stringName.endswith("") #returs true if string ends with substr
+Name.capitalize() #capitalize first letter
+stringName.count() #count number of substr in string
+stringName.find() #find index of substr in string, gives the starting index when finds for the first time
+stringName.index() #find index of substr in string
+stringName.isalnum() #check if string contains alphanumeric
+stringName.isalpha() #check if string contains alphabets
+stringName.isdigit() #check if string contains digits
+stringName.islower() #check if string contains lowercase
+stringName.isupper() #check if string contains uppercase
+stringName.isnumeric() #check if string contains numeric
+stringName.isprintable() #check if string contains printable
+stringName.isspace() #check if string contains space
+stringName.lower() #convert string to lowercase
+stringName.upper() #convert string to uppercase
+stringName.lstrip() #remove leading space
+stringName.rstrip() #remove trailing space
+stringName.strip() #remove leading and trailing space
+stringName.replace("old", "new") #replace substr with another
+stringName.split() #split string into substr
+stringName.join() #join substr into string
+stringName.title() #convert string to title case
+stringName.center() #center string
+stringName.ljust() #left justify string
+stringName.rjust() #right justify string
+stringName.zfill() #zero fill string
+stringName.encode() #encode string
+stringName.decode() #decode string
+stringName.format() #format string
+stringName.format_map() #format string
+stringName.partition() #partition string
+stringName.rpartition() #rpartition string
+stringName.rsplit() #rsplit string
+stringName.splitlines() #split string into lines
+stringName.startswith() #check if string starts with substr
+stringName.swapcase() #swap case of string
+stringName.translate() #translate string
 
 
