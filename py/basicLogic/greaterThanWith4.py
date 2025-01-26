@@ -1,0 +1,1 @@
+#input 4 muber and tell which is the greatest
