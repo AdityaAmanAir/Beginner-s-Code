@@ -8,7 +8,7 @@ int main(){
 
         int a;
         cin>>a;
-        if((a-b)>=k){ 
+        if((a-b)>k){ 
             o=false;
         }else{
         b=a;
