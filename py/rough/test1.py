@@ -312,3 +312,65 @@ stringName.swapcase() #swap case of string
 stringName.translate() #translate string
 
 
+#list 
+MARKS1 =100
+MARKS2=34
+MARKS3=56
+MARKS4=99
+MARKS5=0
+MARKS6=03
+ 
+MARKS =[100,34,56,99,0,3]
+print(MARKS[0], MARKS)
+
+MARKS.append() add the ellement at the last # also called mutation
+MARKS.sort() # arragnges the list , by defalt in assending order
+MARKS.sort(reverse =True) #true has T CAPITAL or it will give error
+MARKS.reverse()
+MARKS.insert(#which index POSITION , #which element)
+MARKS.insert(3,69)      
+MARKS.remove()# this remove the first element who has the same element
+MARKS.pop()# it remove the elemt of th given index
+print(MARKS)
+
+MARKS.pop()
+#NOTE thers function return none
+)
+#TUPLE
+
+marks = (1,2,3,4,5)
+
+print(marks[1:3])
+
+#DICTIONARY 
+
+dict = {
+      "name" : "Aditya",
+      "surname" : "Aman",  # dont forget to use , comma  
+      "love" : "Parents",
+      "Aditya" : "sun",
+      "lol"  : 6.9,    # "key" :  "value"
+      "lol2"  : True
+
+}
+ 
+
+a=1.9   #variable
+b=[]   #list
+c=()    #tuple
+d={}    #dictionary
+e={}     #set
+
+
+#dictionar is mutable
+
+dict.keys() #return all keys
+dict.values() # return all values 
+dict.items()  #return all (key, vale) pairs as tuple
+dict.get("Aditya")   #return the value according to key
+dict.update()   #inserts the specified items to the dictionary 
+
+
+#--------set 
+
+#set is mutable but its elements are immutable

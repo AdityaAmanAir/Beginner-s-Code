@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Aman</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        body {
+            background: black;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            transition: background 0.3s ease-in-out;
+        }
+        .glitch-container {
+            text-align: center;
+        }
+        .glitch {
+            font-size: 4rem;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            animation: flicker 1.5s infinite alternate;
+        }
+        .glitch:before, .glitch:after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+        }
+        .glitch:before {
+            color: red;
+            transform: translate(-3px, -3px);
+            animation: glitch1 0.2s infinite linear alternate;
+        }
+        .glitch:after {
+            color: cyan;
+            transform: translate(3px, 3px);
+            animation: glitch2 0.2s infinite linear alternate;
+        }
+        @keyframes glitch1 {
+            0% { transform: translate(-3px, -3px); }
+            100% { transform: translate(3px, 3px); }
+        }
+        @keyframes glitch2 {
+            0% { transform: translate(3px, 3px); }
+            100% { transform: translate(-3px, -3px); }
+        }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glitch-container">
+        <h1 class="glitch" data-text="ADITYA AMAN">ADITYA AMAN</h1>
+        <p class="subtitle">AI & HFT Enthusiast | C++ Developer</p>
+    </div>
+    <script>
+        document.addEventListener("mousemove", (event) => {
+            const { clientX: x, clientY: y } = event;
+            document.body.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 0, 150, 0.3), black)`;
+        });
+        
+        document.querySelector('.glitch').addEventListener('mouseover', function() {
+            this.style.color = `hsl(${Math.random() * 360}, 100%, 75%)`;
+        });
+    </script>
+</body>
+</html>
