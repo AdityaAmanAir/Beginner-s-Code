@@ -1,14 +1,6 @@
-#list 
-MARKS1 =100
-MARKS2=34
-MARKS3=56
-MARKS4=99
-MARKS5=0
-MARKS6=3
- 
-MARKS =[100,34,56,99,0,3]
-print(MARKS[0])
-MARKS.insert(3,69)      
-print(MARKS)
-MARKS.pop(3)
-print(MARKS)
+A=[123]
+b=[1,2,1]
+
+print(A-b)
+
+#CAB = [BA[i] * CA[i] for i in range(len(A))]

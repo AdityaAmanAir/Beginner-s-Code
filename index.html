@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Aditya Aman Air</title>
+  <link rel="stylesheet" href="./glitchstyle.css">
+  <style>
+  body {
+    margin: 5%;
+    color: #ccc;
+    background: #000;
+    font-family: sans-serif;
+  }
+  </style>
+  
+</head>
+<body>
+
+  <div class="cursor"></div>
+
+<section>
+  <h1>Innovate, Learn 'N Conquer.</h1>
+
+  <div class="hero-container">
+    <div class="environment"></div>
+    <h2 class="hero glitch layers" data-text="ADITYA AMAN"><span>ADITYA AMAN</span></h2>
+    <p class="subtitle">AI & HFT Enthusiast | C++ Developer</p>
+  </div>
+</section>
+
+<script>
+document.addEventListener("mousemove", (event) => {
+    const { clientX: x, clientY: y } = event;
+    document.body.style.background = `radial-gradient(circle 300px at ${x}px ${y}px, rgba(237, 233, 157, 0.8), black 80%)`;
+    
+    const cursor = document.querySelector(".cursor");
+    cursor.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+</script>
+</body>
+</html>

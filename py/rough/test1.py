@@ -374,3 +374,10 @@ dict.update()   #inserts the specified items to the dictionary
 #--------set 
 
 #set is mutable but its elements are immutable
+
+
+#------loops
+loops are use to repeat instructions
+
+while True:
+      print("Hello")
