@@ -1,0 +1,21 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Highlighted text */
+  .highlight {
+    background-color: #ffcc00; /* Yellow background */
+    color: #000; /* Black text */
+    font-weight: bold;
+    border-radius: 3px; /* Slightly rounded corners */
+    padding: 2px 4px; /* Minimal padding */
+    display: inline; /* Ensure no extra space is added */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }

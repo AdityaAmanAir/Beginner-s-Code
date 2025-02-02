@@ -10,15 +10,17 @@
     color: #ccc;
     background: #000;
     font-family: sans-serif;
+    overflow: hidden;
   }
   </style>
   
 </head>
 <body>
-
-  <div class="cursor"></div>
+  
 
 <section>
+  <div class="light-effect"></div>
+  <div class="cursor"></div>
   <h1>Innovate, Learn 'N Conquer.</h1>
 
   <div class="hero-container">
@@ -31,7 +33,7 @@
 <script>
 document.addEventListener("mousemove", (event) => {
     const { clientX: x, clientY: y } = event;
-    document.body.style.background = `radial-gradient(circle 300px at ${x}px ${y}px, rgba(237, 233, 157, 0.8), black 80%)`;
+    document.body.style.background = `radial-gradient(circle 300px at ${x}px ${y}px, rgba(237, 233, 157, 0.8), black 75%)`;
     
     const cursor = document.querySelector(".cursor");
     cursor.style.transform = `translate(${x}px, ${y}px)`;
