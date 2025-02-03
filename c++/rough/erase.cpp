@@ -1,22 +1,19 @@
-<<<<<<< HEAD
-    #include <bits/stdc++.h>
-    using namespace std;
-    int main(){
-        int t;
-        cin>>t;
-        while(t--){
-            double a,b;
-            cin>>a>>b;
-            cout<<setprecision(11)<< double(a/b);
-        }
-        return 0;
+#include <iostream>
+using namespace std;
+
+int main(){
+    int c;
+    cin>>c;
+    int e,f,dum=0;
+    int g=1,pro;
+    while(c){
+        e = c%10;
+        pro=e*g;
+        dum+=pro;
+        c/=10; 
+        g*=2;
+         
     }
-=======
-    #include<bits/stdc++.h>
-    using namespace std;
-    int main(){
-    int a =20;
-    cout<<~a;
-    }
-    
->>>>>>> c81682867fb57cae7705a04a994e4e4c290fe751
+   cout<<dum;
+    return dum;
+}
