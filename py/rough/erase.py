@@ -1,6 +1,3 @@
-A=[123]
-b=[1,2,1]
-
-print(A-b)
-
-#CAB = [BA[i] * CA[i] for i in range(len(A))]
+list1 = [28,34,65,-34,"lol"]
+for i in list1:
+     print(i)

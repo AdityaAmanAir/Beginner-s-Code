@@ -380,4 +380,20 @@ dict.update()   #inserts the specified items to the dictionary
 loops are use to repeat instructions
 
 while True:
-      print("Hello")
+      print("Hello")   #pythhon is smart as if we user a infinit loop  using true then the next line will be in light colour that is it will not be exicuted 
+        break
+for i in list :
+      
+
+
+
+i=1
+
+while i<=5:
+    print("Hello")
+    i+=1
+
+
+list1 = [28,34,65,-34,"lol"]
+for i in list1:
+     print(i)

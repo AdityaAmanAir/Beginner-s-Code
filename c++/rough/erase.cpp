@@ -1,19 +1,27 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main(){
-    int c;
-    cin>>c;
-    int e,f,dum=0;
-    int g=1,pro;
-    while(c){
-        e = c%10;
-        pro=e*g;
-        dum+=pro;
-        c/=10; 
-        g*=2;
-         
-    }
-   cout<<dum;
-    return dum;
+   string first,  l0, l1, l2;
+   string space = " ";
+    getline(cin, first);
+    getline(cin, l0);
+    getline(cin, l1);
+    getline(cin, l2);
+   if(((( l0[0]==first[0])||( l0[0]==space[0])) && (( l1[0]==first[0])||( l1[0]==space[0])) && (( l2[0]==first[0])||( l2[0]==space[0]))) || 
+      ((( l0[1]==first[0])||( l0[1]==space[0])) && (( l1[1]==first[0])||( l1[1]==space[0])) && (( l2[1]==first[0])||( l2[1]==space[0]))) ||  
+      ((( l0[2]==first[0])||( l0[2]==space[0])) && (( l1[2]==first[0])||( l1[2]==space[0])) && (( l2[2]==first[0])||( l2[2]==space[0]))) ||  
+
+      ((( l0[0]==first[0])||( l0[0]==space[0])) && (( l0[1]==first[0])||( l0[1]==space[0])) && (( l0[2]==first[0])||( l0[2]==space[0]))) || 
+      ((( l1[0]==first[0])||( l1[0]==space[0])) && (( l1[1]==first[0])||( l1[1]==space[0])) && (( l1[2]==first[0])||( l1[2]==space[0]))) ||  
+      ((( l2[0]==first[0])||( l2[0]==space[0])) && (( l2[1]==first[0])||( l2[1]==space[0])) && (( l2[2]==first[0])||( l2[2]==space[0]))) || 
+
+      ((( l0[0]==first[0])||( l0[0]==space[0])) && (( l1[1]==first[0])||( l1[1]==space[0])) && (( l2[2]==first[0])||( l2[2]==space[0]))) || 
+      ((( l0[2]==first[0])||( l0[2]==space[0])) && (( l1[1]==first[0])||( l1[1]==space[0])) && (( l2[0]==first[0])||( l2[0]==space[0]))) ){
+    cout<<"Yes you can.";
+   }else{
+    cout<<"No you can't.";
+   }
+    return 0;
 }
