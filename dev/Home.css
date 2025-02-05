@@ -24,6 +24,13 @@ section {
     padding-top: 0px;
     padding-bottom: 40px;;
   } 
+  section2 {
+    position: absolute;
+    z-index: 3;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 40px;;
+  }   
 
 h1,h2 {
     margin: 0;
@@ -556,3 +563,48 @@ h1,h2 {
     background: linear-gradient(to right, #ff5733, #ffcc00, #33ffbd);
 }
 /* moving line css ends */
+.hero-container2 {
+  position: relative;
+  padding: 80px 0;
+  text-align: center;
+  z-index: 3;
+}
+
+.image-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.image-container {
+  width: 48%; /* Adjust width to make images fit well side by side */
+  text-align: center;
+  position: relative;
+}
+
+.environment2, .environment3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover; /* Ensures the image covers the container */
+  background-position: center; /* Center the image */
+  opacity: 0.5; /* Set opacity for the background image */
+  filter: blur(5px); /* Optional blur effect */
+  z-index: -1; /* Make sure the image stays behind the content */
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    width: 100%; /* Full-width on smaller screens */
+    padding: 10px;
+  }
+  
+  .image-section {
+    flex-direction: column; /* Stack images vertically on smaller screens */
+    padding: 10px;
+  }
+}
