@@ -1,0 +1,4 @@
+Hi, this is my 1st txt file using python
+ I am learning I/o
+Above text got overwrite by this text. 
+Because we are using 'w' that is write in the function

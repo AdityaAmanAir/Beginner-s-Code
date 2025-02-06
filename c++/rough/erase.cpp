@@ -1,24 +1,127 @@
 #include <iostream>
-#include <string>
 using namespace std;
-
 int main(){
-   int a,b,c,d;
-   cin>>a>>b>>c>>d;
-   if(a+b+c==100){
-      cout<<"Train 1, Train 2 and Train 3\nTrain 4";
-   }else if(a+b+d==100){
-      cout<<"Train 1, Train 2 and Train 4\nTrain 3";
-   }else if(a+d+c==100){
-      cout<<"Train 1, Train 3 and Train 4\nTrain 2";
-   }else if(d+b+c==100){
-      cout<<"Train 1\nTrain 2 Train3 and Train 4";
-   }else if(a+b==100){
-      cout<<"Train 1 and Train 2\nTrain 3 and Train 4";
-   }else if(a+c==100){
-      cout<<"Train 1 and Train 3\nTrain 2 and Train 4";
-   }else if(a+d==100){
-      cout<<"Train 1 and Train 4\nTrain 2 and Train 3";
+unsigned int t, d = 0, h = 0, m = 0, y = 0;
+cin >> t;
+while (31536000 <= t){
+   t -= 31536000;
+   ++y;
+}
+while (86400 <= t){
+   t -= 86400;
+   ++d;
+}
+while (3600 <= t){
+   t -= 3600;
+   ++h;
+}
+while (60 <= t){
+   t -= 60;
+   ++m;
+}
+if ((m != 0) || (h != 0) || (y != 0) || (d != 0)){
+   if ((h != 0) || (y != 0) || (d != 0)){
+      if ((y != 0) || (d != 0)){
+         if (y != 0){
+               cout << y;
+               if (y == 1){
+                  cout << " year, ";
+               }
+               else{
+                  cout << " years, ";
+               }
+               cout << d;
+               if (d == 1){
+                  cout << " day, ";
+               }
+               else{
+                 cout << " days, ";
+               }
+               cout << h;
+               if (h == 1){
+                  cout << " hour, ";
+               }
+               else{
+                  cout << " hours, ";
+               }
+               cout << m;
+               if (m == 1){
+                  cout << " minute and ";
+               }else{
+                 cout << " minutes and ";
+               }
+               cout << t;
+               if (t == 1){
+                  cout << " second";
+               }else{
+                  cout << " seconds";
+               }
+            }else{
+               cout << d;
+               if (d == 1){
+                  cout << " day, ";
+               }else{
+                 cout << " days, ";
+               }
+               cout << h;
+               if (h == 1){
+                  cout << " hour, ";
+               }else{
+                  cout << " hours, ";
+               }
+               cout << m;
+               if (m == 1){
+                  cout << " minute and ";
+               }else{
+                 cout << " minutes and ";
+               }
+               cout << t;
+               if (t == 1){
+                  cout << " second";
+               }else{
+                 cout << " seconds";
+               }
+            }
+         }else{
+            cout << h;
+            if (h == 1){
+               cout << " hour, ";
+            }else{
+               cout << " hours, ";
+            }
+            cout << m;
+            if (m == 1){
+               cout << " minute and ";
+            }else{
+              cout << " minutes and ";
+            }
+            cout << t;
+            if (t == 1){
+               cout << " second";
+            }else{
+              cout << " seconds";
+            }
+         }
+      }else{
+         cout << m;
+       if (m == 1){
+          cout << " minute and ";
+       }else{
+         cout<< " minutes and";
+       }
+       cout << t;
+       if (t == 1){
+          cout << " second";
+       }else{
+         cout << " seconds";
+       }
+     }  
+   }else{
+      cout << t;
+      if (t == 1){
+         cout << " second";
+      }else{
+         cout << " seconds";
+      }
    }
-    return 0;
 }

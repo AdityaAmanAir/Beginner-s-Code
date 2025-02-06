@@ -402,4 +402,34 @@ for  lol in range(0,101,2):
      print (lol)
 
 for  lool in range(101,-1,-2):
-     print (lool)     
+     print (lool)   
+
+
+#PASS-----
+     pass
+If we needs a empty loop without KeyError
+
+
+#Function-----
+
+def(parameters1, parameter 2):
+    return xyz
+
+#RECURSION------
+    looping of function is callled recusion 
+    
+call stack # call + function call, stack = stack of book
+
+|               |
+|               |
+|               |
+|_______________|
+|               |
+|_______________|finction 3
+|               |
+|_______________|function 2
+|               |
+| def $& variabl|function 1
+-----------------
+
+
