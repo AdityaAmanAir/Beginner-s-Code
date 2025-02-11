@@ -406,30 +406,40 @@ for  lool in range(101,-1,-2):
 
 
 #PASS-----
-     pass
-If we needs a empty loop without KeyError
+   #  pass
+#If we needs a empty loop without KeyError
 
 
 #Function-----
 
-def(parameters1, parameter 2):
-    return xyz
+#def(parameters1, parameter 2):
+    #lol=1
+
+    #return 0
 
 #RECURSION------
-    looping of function is callled recusion 
+#looping of function is callled recusion 
     
-call stack # call + function call, stack = stack of book
+#call stack # call + function call, stack = stack of book
 
-|               |
-|               |
-|               |
-|_______________|
-|               |
-|_______________|finction 3
-|               |
-|_______________|function 2
-|               |
-| def $& variabl|function 1
------------------
+#|               |
+#|               |
+#|               |
+#|_______________|
+#|               |
+#|_______________|finction 3
+#|               |
+#|_______________|function 2
+#|               |
+#| def $& variabl|function 1
+#-----------------
 
+#i/o in python--------------------------------------------------
+#the build in function to open file is
 
+f = open("practice.txt", "r")
+data =f.read()
+or 
+data - f.readline
+print(data)
+f.close

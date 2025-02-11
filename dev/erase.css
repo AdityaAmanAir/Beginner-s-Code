@@ -1,21 +1,41 @@
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  /* Highlighted text */
-  .highlight {
-    background-color: #ffcc00; /* Yellow background */
-    color: #000; /* Black text */
-    font-weight: bold;
-    border-radius: 3px; /* Slightly rounded corners */
-    padding: 2px 4px; /* Minimal padding */
-    display: inline; /* Ensure no extra space is added */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  }
+.cursor101 {
+  position: absolute;
+  width: 6px; /* Very small circle */
+  height: 6px; /* Very small circle */
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff; /* Glow effect */
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Ensure the cursor doesn't interfere with clicks */
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, opacity 0.3s ease;
+  opacity: 1; /* Default opacity */
+  z-index: 9999; /* Ensure cursor is always on top */
+}
+
+/* Yellow triangle */
+.cursor101::before {
+  content: '';
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  width: 0; /* Triangle width */
+  height: 0; /* Triangle height */
+  border-left: 5px solid transparent; /* Left side of the triangle */
+  border-right: 5px solid transparent; /* Right side of the triangle */
+  border-bottom: 10px solid #f5c21c; /* Yellow triangle */
+  transform: translate(-50%, -50%) rotate(-45deg); /* Center and rotate */
+  transform-origin: center center; /* Rotate around the center */
+  filter: drop-shadow(0 0 5px #13e6b1) drop-shadow(0 0 10px #fff); /* Glow effect */
+}
+
+.cursor101.active {
+  width: 10px; /* Slightly larger circle when active */
+  height: 10px; /* Slightly larger circle when active */
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px #fff; /* Enhanced glow when active */
+}
+
+.cursor101.active::before {
+  border-bottom: 12px solid #f5c21c; /* Slightly larger triangle */
+  filter: drop-shadow(0 0 10px #13e6b1) drop-shadow(0 0 20px #fff); /* Enhanced glow */
+}

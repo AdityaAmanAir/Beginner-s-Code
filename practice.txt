@@ -1,4 +1,4 @@
-Hi, this is my 1st txt file using python
+Hiii, this is my 1st txt file using python
  I am learning I/o
-Above text got overwrite by this text. 
+old text in file got overwrite by these text. 
 Because we are using 'w' that is write in the function
