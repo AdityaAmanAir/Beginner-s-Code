@@ -1,3 +1,3 @@
-a=-10
-b=5
-print(5==5.000000000000001)
+a=input()
+b=a.count("x")
+print(10**b)

@@ -1,22 +1,10 @@
 #include<iostream>
+#include<iomanip>
 using namespace std;
-int main (){
-      int t,w=9999999;
-      cin>>t;
-      int count=0;
-      while(t--){
-         int n, k;
-         cin>>n>>k;
-         while (n--){
-            int m;
-            cin>>m;
-            if (w>m){
-               count++;
-            }
-            w=m;
-         }if(count>k){
-            cout<<"YES\n";
-         }else{cout<<"NO\n";}
-      }
-   return 0;
+int main(){
+    double a,b,m,n,x;
+    cin>>m>>a>>n>>b;
+    x=(b-a)/(m-n);
+    cout<<setprecision(16)<<x;
+    return 0;
 }
