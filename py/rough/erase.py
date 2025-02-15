@@ -1,3 +1,2 @@
-a=input()
-b=a.count("x")
-print(10**b)
+a=(5 & 3) | (8 ^ 2) and not (4 >> 1)
+print(a)

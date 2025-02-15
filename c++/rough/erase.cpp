@@ -1,10 +1,10 @@
 #include<iostream>
 #include<iomanip>
+#include<cmath>
 using namespace std;
 int main(){
-    double a,b,m,n,x;
-    cin>>m>>a>>n>>b;
-    x=(b-a)/(m-n);
-    cout<<setprecision(16)<<x;
+    double a,b,c,d;
+    cin>>a>>b>>c;
+    cout<<setprecision(17)<<sqrt(a/b*c);
     return 0;
 }
