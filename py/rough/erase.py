@@ -1,2 +1,3 @@
-a=(5 & 3) | (8 ^ 2) and not (4 >> 1)
-print(a)
+c=10
+d=8
+print(c is d)
