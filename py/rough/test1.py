@@ -595,4 +595,13 @@ print(s1.varC)
 @classmethod #decorator
 
 @property
+#what this do na, when ever there is any change in the atribute it also get reflected in the methods that are defined under the @property section 
 
+
+##polymorphism
+
+#operator overloading
+__add__ ## double dash in front and back of operator (well python already build it "add" for the operator '+')
+**#Note--- if you miss __ (double dash in back) it will become a private method of the class
+
+__(something)__ are called Dunder function
