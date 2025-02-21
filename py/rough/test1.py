@@ -474,3 +474,125 @@ s1=s()
 print(s1)
 print(s1.n)
  
+class Student:
+    def __init__(self, name, mark):
+        self.name=name
+        self.mark=mark
+
+    def get(self):
+        sum = 0
+        for val in self.mark:
+            sum += val
+        print("hi", self.name,"you avg mark is: ", sum/3)
+
+s1 = Student("tony stark", [99, 98, 97])            
+s1.get() 
+
+
+##########################################3
+
+class Student:
+    def __init__(self, name, mark1,mark2, mark3):
+        self.name=name
+        self.mark1=mark1
+        self.mark2=mark2
+        self.mark3=mark3
+
+    def get(self):
+        sum = (self.mark1+self.mark2+self.mark3)
+        print(sum/3)
+
+   #def __init__(self):
+   #    pass    
+
+#s1=Student
+s1 = Student("Aditya",3,4,5)
+s1.get()
+
+s1.name="Aman"
+s1.get()
+
+#static-Method
+
+@staticmethod
+#make the method as a class rather then an object
+## mota mote -> ye koe bhi method ko as a global method banna deta hai without moving from the class, I.E it can be called by going through class or directoly  #####Static method ek aisa method hai jo class ka part hota hai, lekin kisi specific object se juda nahi hota. Yeh ek global function ki tarah behave karta hai bina class ke bahar move kiye.
+##also called decorator 
+
+del s1.name
+del s1
+
+#PUBLIC AND PRIVATE
+
+class check:
+    def __ThisISPrivate(): # useing double underscore to make it private
+        print ("private") 
+    def ThisIsPublic():
+         print("public")    
+    #same class can access private methods but the main method cannot  
+       
+#inheritance       
+
+##single ingeritance
+##multi-level inheritance
+##multiple inheritnce a
+class car:
+    def start(self):
+         self.start1=True
+         print("Started...")
+         return 1
+
+    def stop (self):
+         self.stopt1=True 
+
+
+class wagen(car):
+     def __init__(self,name):
+        self.name=name
+
+car1= wagen("bmw")  
+car2=wagen("mercy")   
+
+print(car1.name)
+print(car1.start())
+                  
+
+
+##MULTI-LEVEL INHERITANCE                  
+class A:
+     varA="class A"    
+
+class B(A):
+     varB="class B" 
+
+class C(B):
+     varC="class C"  
+
+s1=C()   
+print(s1.varA)
+
+##MULTIPLE INHERITANC
+
+class A:
+     varA="class A"    
+
+class B:
+     varB="class B" 
+
+class C(A,B):
+     varC="class C"  
+
+s1=C()   
+print(s1.varA)
+print(s1.varB)
+print(s1.varC)
+
+
+##super()------method
+#super() method is used to access methods of thr parents class
+
+##class method
+@classmethod #decorator
+
+@property
+
