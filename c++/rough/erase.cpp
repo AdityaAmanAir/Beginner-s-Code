@@ -1,12 +1,11 @@
-    #include<iostream>
-    #include <iomanip>
-    using namespace std;
-    int main(){
-        int t;
-        cin>>t;
-        while(t--){
-        float a,b=2.0;
-        cin>>a;
-        cout<<setprecision(16)<<a/b<<endl;
-    }
-    }
+#include <iostream>
+using namespace std;
+
+int b; // Global variable, default-initialized to 0
+
+int main(int h, int g) {
+    int a =11;
+   double c= a/2*h*g; // Initialize local variable
+    cout << c << endl;
+    return 0;
+}
