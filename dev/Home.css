@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400&display=swap');
 body {
   margin: 5%;
-  color: #ccc;
+  color: rgb(255,255,255);
   background: #000;
-  font-family: sans-serif;
+  font-family: Archivo, -apple-system, Arimo, ui-sans-serif, system-ui, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   overflow-x: hidden; /* Prevents horizontal scrolling */
   overflow-y: auto;   /* Allows vertical scrolling */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
 html, body {
   cursor: none;
@@ -33,14 +38,16 @@ section2 {
   padding-top: 0px;
   padding-bottom: 40px;;
 }   
-
+h1{
+  font-size: 20px;
+}
 h1,h2 {
   margin: 0;
   z-index: 3;
 }
 
 write {
-  font-size: 19px; /* Balanced size for readability */
+  font-size: 12px; /* Balanced size for readability */
   color: #d6d0b7; /* Dark gray for a professional look */
   text-align: left; /* Ensures proper left alignment */
   line-height: 1.6; /* Improves readability */
@@ -61,19 +68,28 @@ write {
   bottom: 0;
   opacity: 0.5;
   filter: blur(5px);
-  background: url(https://i.ibb.co/tw3LB0mH/3420085.jpg) center no-repeat;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: 2;
+  transition: background-image 0s ease-in-out;
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&display=swap');
 .hero {
-  font-size: clamp(40px, 10vw, 100px);
+  font-size: clamp(40px, 10%, 50px);
   line-height: 1;
   display: inline-block;
   color: #fff;
   z-index: 2;
   letter-spacing: 10px;
   filter: drop-shadow(1px 1px 4.5px);
+  font-family: "InstrumentSerif";
+    font-weight: 400;
+    font-style: normal;
+    line-height: 48px;
+    
 }
 
 .demo {
@@ -675,3 +691,75 @@ z-index: -1; /* Make sure the image stays behind the content */
     opacity: 0;
   }
 }
+/*----------------loading animation-----------*/
+/* Full-screen loader */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black; /* Background remains dark for contrast */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Cloud container */
+/* Full-screen loader */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0); /* Dark background for contrast */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Cloud container */
+.clouds {
+  position: absolute;
+  width: 120vw;
+  height: 120vh;
+  background: url('https://i.ibb.co/FbJS7bDS/Pngtree-cloud-3554581.png') no-repeat center;
+  background-size: cover;
+  opacity: 1;
+  transition: transform 2s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* Two cloud layers moving apart */
+.cloud-left {
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+}
+
+.cloud-right {
+  top: 0;
+  right: 0;
+  transform: translate(0, 0);
+}
+
+/* Animation to move clouds apart */
+.cloud-left.move {
+  transform: translate(-150%, 150%);
+}
+.cloud-right.move {
+  transform: translate(150%, -150%);
+}
+
+/* Fade out after animation */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/*----------------loading animation ENDS-----------*/

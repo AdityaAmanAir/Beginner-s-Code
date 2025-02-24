@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Candies",
+      "request": "launch",
+      "mainClass": "Candies",
+      "projectName": "programming_934d2879"
+    },
+    {
+      "type": "java",
+      "name": "labyrinth",
+      "request": "launch",
+      "mainClass": "labyrinth",
+      "projectName": "programming_934d2879"
+    },
+    {
+      "type": "java",
       "name": "HelloWorld",
       "request": "launch",
       "mainClass": "HelloWorld",

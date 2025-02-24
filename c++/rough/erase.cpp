@@ -1,11 +1,15 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int b; // Global variable, default-initialized to 0
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int a;
+	    cin>>a;
+	    float d= a/4.0;
+        int e=a/4;
+        cout<<((e==d)? (e):(e+1));
+	}
 
-int main(int h, int g) {
-    int a =11;
-   double c= a/2*h*g; // Initialize local variable
-    cout << c << endl;
-    return 0;
 }
