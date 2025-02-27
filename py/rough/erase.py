@@ -1,4 +1,7 @@
-a=int(input())
-b=int(input())
-d=(((a*a)-(b*b))**(1/2))+b
-print(d)
+a=0
+while a<3:
+    a+=1
+    print("loop")
+    break
+else:
+    print("else")    
