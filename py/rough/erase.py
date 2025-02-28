@@ -1,7 +1,3 @@
-a=0
-while a<3:
-    a+=1
-    print("loop")
-    break
-else:
-    print("else")    
+def display():
+      print(sum)     
+display()    
