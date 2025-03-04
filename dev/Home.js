@@ -14,6 +14,33 @@ function createFireTrail(x, y) {
     fireElement.remove();
   });
 }
+// Function to check if the cursor is inside the viewport
+function checkCursorPresence() {
+  let cursorInside = false;
+
+  // Detect mouse movement to confirm cursor presence
+  document.addEventListener("mousemove", (e) => {
+    cursorInside = true;
+    cursor101.style.left = `${e.clientX}px`;
+    cursor101.style.top = `${e.clientY}px`;
+    cursor101.style.opacity = "1";  // Show cursor
+  });
+
+  // Detect when the cursor leaves the window
+  document.addEventListener("mouseleave", () => {
+    cursorInside = false;
+  });
+
+  // Run an interval to check if the cursor is missing
+  setInterval(() => {
+    if (!cursorInside) {
+      cursor101.style.opacity = "0";  // Hide cursor
+    }
+  }, 100); // Check every 100ms
+}
+
+// Start monitoring cursor presence
+checkCursorPresence();
 
 // Function to move the custom cursor and create fire trail
 const moveCursor = (e) => {
