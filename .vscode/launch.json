@@ -29,8 +29,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/aditya-aman/programming/c++/basicLogic",
-      "program": "/home/aditya-aman/programming/c++/basicLogic/build/Debug/outDebug",
+      "cwd": "/home/aditya-aman/All repo./programming/c++/rough",
+      "program": "/home/aditya-aman/All repo./programming/c++/rough/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
