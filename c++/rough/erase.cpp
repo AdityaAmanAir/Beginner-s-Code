@@ -1,11 +1,29 @@
 #include <iostream>
 using namespace std;
-int main() {
-    int a;
-    cin>>a;
-    while(a%2==0){
-        a/=2;
-    }while(a%3==0) a/=3;
-    cout<<((a==1)?"YES":"NO");
-   return 0;
+int main(){
+    int t,init=0,diff,sum=0,supersum=0;
+    cin>>t;
+    while(t--){
+        int num;
+        cin>>num;
+        if(num>init){
+            if(init==0){
+                init=num;
+            }else{
+                diff=num-init;
+                init=num;
+                sum+=diff;
+            }if(supersum<sum){
+                supersum=sum;
+            }
+        
+        }else{
+            sum=0;
+            init=num;
+        }
+        
+
+    }
+    cout<<supersum;
+    return 0;
 }
