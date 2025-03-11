@@ -1,9 +1,15 @@
-#include <iostream>
-#include <cstdio>
+#include <bits/stdc++.h>
 using namespace std;
-int main(){
-    int a=10,b=02;
-    cout<<a/b;
-    getchar();
-    cout<<" wtf u pressed something"<<endl;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int a,b,d=-1;
+	    cin>>a;
+	    while(a--){
+	        cin>>b;
+	        if(d<b) d=b;
+	    }cout<<d<<endl;
+	}
 }
