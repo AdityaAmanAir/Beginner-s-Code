@@ -438,3 +438,7 @@ cout<<x;// since it is a unsigned data there for the output will be : 4294967286
 // -10 = 10 + 2^(size data type in bit or 8*Bytes)
 
 //ARRAYS
+
+/////// DATA TYPE:
+//Arrays
+
