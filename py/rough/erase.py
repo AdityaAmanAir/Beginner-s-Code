@@ -1,4 +1,3 @@
-a=[10,20,30]
-print(a)
-print(a[1])
-print(a["1"])
+a=0.7
+if a==0.7:
+    print("Yes")
