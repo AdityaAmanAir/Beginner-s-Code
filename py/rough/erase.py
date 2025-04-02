@@ -1,10 +1,25 @@
-fact=1
-num=int(input("enter the number"))
-if num==0:
-    print(1)
-elif num<0:
-    print("not possible")
-if num>0:
-    for i in range(1,num+1):
-        fact=fact*i
-        print(fact, end=' ')
+t=int(input())
+while(t>0):
+    t-=1
+    a=[]
+    aa=a.copy()
+    an=int(input())
+    n=an
+    max=0
+    plus=0
+    if an>3:
+        while(an>0):
+            an-=1
+            x=int(input())
+            a.append(x)
+        aa.sort()
+        max=aa[-1]
+        if (max==a[0] or max==a[-1]):
+            cor=True
+        plus=int(n/2)   
+        max+=plus
+    while(an>0):
+            an-=1
+            x=int(input())
+            a.append(x)   
+

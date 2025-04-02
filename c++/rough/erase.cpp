@@ -1,10 +1,18 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    float f = 0.7f;
-    if (f==0.7){
-        cout<<"yes";
-    }else{cout<<"No 0.7 "<<0.7<<" "<<f;}
-    return 0;
+	int t;
+	cin>>t;
+	while(t--){
+	    int a,c,b={};
+	    cin>>a;
+	    for(int i; i<a; i++){
+	        int x;
+	        cin>>x;
+	        b[i]=x;
+	    }
+	    
+	}
+
 }
