@@ -1,25 +1,19 @@
-t=int(input())
-while(t>0):
-    t-=1
-    a=[]
-    aa=a.copy()
-    an=int(input())
-    n=an
-    max=0
-    plus=0
-    if an>3:
-        while(an>0):
-            an-=1
-            x=int(input())
-            a.append(x)
-        aa.sort()
-        max=aa[-1]
-        if (max==a[0] or max==a[-1]):
-            cor=True
-        plus=int(n/2)   
-        max+=plus
-    while(an>0):
-            an-=1
-            x=int(input())
-            a.append(x)   
+def count_valid_sequences(A, k):
+    n = len(A)
+    count = 0
+    for i in range(n):
+        current_sum = 0
+        for j in range(i, n):
+            current_sum += A[j] 
+            if current_sum >= k:
+                count += 1
+                break
 
+    return (count)
+
+t = int(input())
+for _ in range(t):
+    n, k, x = map(int, input().split())
+    a = list(map(int, input().split()))
+    b=a*k
+    print(count_valid_sequences(a,x)*6  )      
