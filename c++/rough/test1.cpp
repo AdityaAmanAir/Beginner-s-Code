@@ -442,7 +442,7 @@ cout<<x;// since it is a unsigned data there for the output will be : 4294967286
 /////// DATA TYPE:
 //Arrays
 // arrays only store one type of data
-// data of array are stored together (ontigious in memory)
+// data of array are stored together (contigious in memory)
 
 int marks[5]
 
@@ -504,3 +504,16 @@ INT8_MAX
 INT16_MAX
 INT32_MAX
 INT64_MAX
+
+//--------------------------------------------------------
+min- max function
+ cout<< min ( a,b);
+ cout<< max( a,b);
+
+//-------------------------------------------------------
+double se[3] = {1,2,3};
+double xe[] = {1,2,3};
+
+//In c++ , the array only can be accised by pass-by-referance and not pass-by-value
+
+swap(a,b) //swap two data type , under hood it is using <template> temp
