@@ -17,7 +17,7 @@ S, P = np.meshgrid(star_masses, planet_masses)
 
 # Calculate orbital period using Kepler's Third Law
 T = 2 * np.pi * np.sqrt(a**3 / (G * (S + P)))  # in seconds
-T_days = T / (60 * 60 * 24)  # convert to days
+T_days = T / (60 * 60 * 24)  # convert to days 
 
 # Plotting the result
 plt.figure(figsize=(10, 6))
