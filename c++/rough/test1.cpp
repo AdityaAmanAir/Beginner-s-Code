@@ -517,3 +517,35 @@ double xe[] = {1,2,3};
 //In c++ , the array only can be accised by pass-by-referance and not pass-by-value
 
 swap(a,b) //swap two data type , under hood it is using <template> temp
+
+//VECTORS
+
+vector has a dynamic space allocation that is ... its size can be change even after decleration it ... and in Array, onec the size has been alloted , it cannoted be changed after ...
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+    vector <int> myVector ={1,2,3,4};
+    vector <int> myvector2;
+    vector <int> myVector3(4,9); 
+    cout<< myVector[0] <<"\n" <<myVecttor2[0]; //it will show segmentation falt if we acces the element  apart from vector 
+    /// command g++ -std=c++11 to use vector poperly with no error
+    //for each loop 
+    for (int i:myVector ){
+        cout<<i;
+    }
+
+    vector <char > myCv ={'a','b','c','d','e','z','b'};
+
+    for(char val : myCv){
+        cout<< val;
+    }
+
+    return 0;
+}
+
+cout<<"Size = "<<myVector.size()<<endl;
+
+
