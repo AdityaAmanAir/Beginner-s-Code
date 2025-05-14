@@ -584,3 +584,6 @@ int main(){
 DYNAMIC VECTOR SIZE GETS DOUBLED (x2) WHENEVER THE PREVIOUS SIZE GETS FULL... the capicity gets dubbled 
 
 
+//TIME COMPLEXITY 
+
+It is a graph of // INPUT vs OUTPUT
