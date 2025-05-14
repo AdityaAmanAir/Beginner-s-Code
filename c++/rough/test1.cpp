@@ -446,13 +446,14 @@ cout<<x;// since it is a unsigned data there for the output will be : 4294967286
 
 int marks[5]
 
-
 #include <iostream>
+#include <array>
 using namespace std;
 int main(){
     int marks[5]={99,100,98,87,97};
     int marks[50]={99,100,98,87,97};
     double id[]={2.99,3.87,4.001};
+    array <int,5> Myarray69 ;
     return 0;
 }
 
@@ -462,7 +463,7 @@ position of array
 cout<<marks[3]<<" "<<mark[4]<<" "<<mark[-1]<<" "<<mark[40]<<" "<<mark[400];
  
 // -1, 40, 400 will have garbage value, and not  value 0
-\\NOTE : 0 will come to few palce but it does not mean it is not garbage value 
+//NOTE : 0 will come to few palce but it does not mean it is not garbage value 
 
 // size of array
 
@@ -482,8 +483,6 @@ for(int i=0; i<len1+50;i++){
 for(int i=0; i<len1+50;i++){
     cout<<marks[i]<<" "<<mark[i]<<endl;
 }
-
-
 
 int len_input =sizeof(input)/sizeof(int);
 
@@ -506,7 +505,7 @@ INT32_MAX
 INT64_MAX
 
 //--------------------------------------------------------
-min- max function
+ min- max function
  cout<< min ( a,b);
  cout<< max( a,b);
 
@@ -533,19 +532,55 @@ int main(){
     cout<< myVector[0] <<"\n" <<myVecttor2[0]; //it will show segmentation falt if we acces the element  apart from vector 
     /// command g++ -std=c++11 to use vector poperly with no error
     //for each loop 
-    for (int i:myVector ){
+    for (int i : myVector ){
         cout<<i;
     }
-
     vector <char > myCv ={'a','b','c','d','e','z','b'};
 
     for(char val : myCv){
         cout<< val;
     }
+    return 0;
+}
+cout<<"Size = "<<myVector.size()<<endl;
 
+vector <int> myvector;
+
+//THE DIFFERENCE BETWEEN ARRAY AND THE VECTOR IS ... ARRAY HAS FIXED SIZE ... VECTOR HAS DYNAMIC SIZE 
+
+#include <iostream>
+#include <vector>
+
+int main(){
+    std::vector <char> verr={'A','B','C','x','y','5'};
+
+    std::cout<< "size = "<< verr.size();
+
+    verr.push_back('w'); // add the elements at the last only!
+
+    std::cout<< "\nAfter push back, size = "<< verr.size()<<"\n"; 
+
+    for (char val : verr){
+        std::cout<<val<< " ";
+    }
+
+    verr.pop_back(); //olway pop last index value
+
+    std::cout<<"\n";
+
+    for (char val : verr){
+        std::cout<<val<< " ";
+    }
+    std::cout<<"\n";
+
+    std::cout<<verr.front()<<std::endl;
+    std::cout<<verr.back()<<std::endl;
+
+    std::cout<<verr.at(2)<<"\n";
     return 0;
 }
 
-cout<<"Size = "<<myVector.size()<<endl;
+//STATIC VS DYNAMIC 
+DYNAMIC VECTOR SIZE GETS DOUBLED (x2) WHENEVER THE PREVIOUS SIZE GETS FULL... the capicity gets dubbled 
 
 
