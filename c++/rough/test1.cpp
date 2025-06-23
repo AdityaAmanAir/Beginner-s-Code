@@ -587,3 +587,17 @@ DYNAMIC VECTOR SIZE GETS DOUBLED (x2) WHENEVER THE PREVIOUS SIZE GETS FULL... th
 //TIME COMPLEXITY 
 
 It is a graph of // INPUT vs OUTPUT
+
+MAXIMUM SUBARRAY SUM
+
+Kadans algo.
+
+pair sum.
+(Two Pointer Approch)
+
+majority element 
+    - moore's 
+    - brute force
+    - optmize
+
+

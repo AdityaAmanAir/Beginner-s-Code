@@ -60,7 +60,8 @@
     "iostream": "cpp",
     "istream": "cpp",
     "ostream": "cpp",
-    "ios": "cpp"
+    "ios": "cpp",
+    "array": "cpp"
   },
   "github.copilot.enable": {
     "*": false,
