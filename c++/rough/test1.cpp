@@ -600,4 +600,36 @@ majority element
     - brute force
     - optmize
 
+Time and space complexity 
+
+    int n;
+    cin>>n;
+    int ans= n*(n+1)/2; //O(1) time complexity
+
+    recursion (factorial example) // O(n)
+
+    merge step 
+    merge sort   //time complixity : O(n*log n), space : o(n)
+
+//##### operation vs second
+
+10^8 operation = 1 sec
+TLE : Time level exceeded 
+
+e.g.  n<10^5 given 
+
+if we go for O(n^2)
+ it will do 10^10 which will take more than 1.001 sec
+
+practical Usage 
+
+n > 10^8 O(log n) ,  O(1)
+n <=10^8 O(n)
+n <=10^6 O(n*log(n))
+n <=10^4 O(n^2)
+n <=500  O(n^3)
+n <=25   O(2^n)
+n <=12   O(n!)
+
+
 
