@@ -1,14 +1,15 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int a,b,i,count=0,c=0;
-        cin>>a>>b;
-        while
-        
-    }
+class Car {
+    public:
+      int speed(int maxSpeed){};
+  };
+  int Car::speed(int maxSpeed) {
+    return maxSpeed;
+  }
+  int main() {
+    Car myObj; // Create an object of Car
+    cout << myObj.speed(200); // Call the method with an argument
     return 0;
 }
