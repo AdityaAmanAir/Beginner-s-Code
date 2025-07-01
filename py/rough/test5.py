@@ -1,4 +1,4 @@
-def printall(args):
+def printall(*args):
 
     print((args))
 
