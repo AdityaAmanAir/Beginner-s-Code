@@ -37,3 +37,90 @@ p{
     text-transform: capitalize;
 }
  
+div{
+    width: auto;
+    height: auto;
+    padding: 0%;
+    margin: 25px;
+    display: block, inline,inline-block;
+    visibility: hidden;
+    z-index: -3;
+}
+box{
+    position: static, relative, absolute, fixed,sticky;
+    visibility: hidden;
+    color: rgba(red, green, blue, alpha);
+    width : 50 px, em, rem 
+    
+}
+body{
+background-size: cover;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+justify-content: space-evenly;
+align-items: center;
+align-content: center;
+align-self: center;
+flex-grow: 3;
+flex-shrink: 0.2;
+flex-shrink: 0;
+
+}
+
+@media (width : 600px) {
+    
+}
+@media (min-width : 600px) {
+    
+}
+@media (max-width : 60px) {
+    
+}
+@media (width : 60px) and (width:200px) {
+    
+}
+div:hover{
+    color: darkorange;
+}
+
+div{
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: steps(5), ease-in;
+    transition-delay: 2ms;
+    transition: all,2s ease-in-out 1s;/* everything in one step*/
+
+    transform: rotate(45deg);
+    transform: y 45deg;
+
+    transform: skew(90deg);
+
+
+    animation-name: myFirstAnimation;
+    animation-duration: 0s;
+    animation-delay: 10;
+    animation-timeline:none ;
+    animation-direction: alternate;
+}
+
+@keyframes myFirstAnimation {
+    from{font-size :20px}
+    to{font-size : 40pz}
+}
+@keyframes myFirstAnimation {
+    from{background-color: #00ff00;}
+    to{background-color: aqua;}
+}
+@keyframes somthing{
+    0%{
+        
+    }
+    50%{
+
+    }
+    100%{
+
+    }
+}
+
