@@ -6,11 +6,34 @@ button{
 
     color: brown;
 
-    background-color: aqua;
+    background-color:#00ff00;
 }
 
 body{
 
-    background-color: black;
+    background-color:rgb(255, 255, 255);
 
 }
+
+*{
+    color:rgb(0, 0, 0)
+}
+
+#id1{
+    color: brown;
+}
+
+#id2{
+    color: blueviolet
+}
+.itsClass{
+    color: crimson;
+}
+
+
+p{
+    text-align: center;
+    text-decoration:#00ff00;
+    text-transform: capitalize;
+}
+ 
