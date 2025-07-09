@@ -631,5 +631,80 @@ n <=500  O(n^3)
 n <=25   O(2^n)
 n <=12   O(n!)
 
+//ADDRESS OF OPERATOR &
+& is used to find the addres of the assigned data/ data type 
+// Dereferencing operator *
+* is used to dereference the value inside an __cpp_variable_templates
+** dereferance 2x times
+*** dereferance 3x times
+**** dereferance 4x times ... and so on ..
+//POINTER 
+it is a special variables that store address of other condition_variable
+
+int *a = &b; //it is a pointer i.e stores the address of data
+
+    int a =10;
+    int* p = &a;
+    cout<<a<<endl;
+    cout<<&a<<endl;
+    cout<<p<<endl;
+    cout<<*p<<endl;
+    cout<<&p<<endl;
+    //cout<<*a<<endl;//this will show error because it in not pointer
+//-------------------------------------------------------------------------------
+    //POINTER to POINTER & pointer = pointer
+ int a =10;
+    int* p = &a;
+    cout<<a<<endl;
+    cout<<&a<<endl<<endl;
+
+    cout<<p<<endl;
+    cout<<*p<<endl;
+    cout<<&p<<endl<<endl;
+    //cout<<*a<<endl;//this will show error because it in not pointer
+int* p2 =p;
+    cout<<p2<<endl;
+    cout<<*p2<<endl;
+    cout<<&p2<<endl<<endl;
+
+int** p3 =&p;
+    cout<<p3<<endl;
+    cout<<*p3<<endl;
+    cout<<**p3<<endl;
+    //cout<<***p3<<endl; *** do not contain any address
+    cout<<&p3<<endl<<endl;
 
 
+    int*** p4 =&p3;
+    cout<<p4<<endl;
+    cout<<*p4<<endl;
+    cout<<**p4<<endl;
+    cout<<***p4<<endl; 
+    cout<<&p4<<endl<<endl;
+    return 0;
+ //---------------------------------------
+
+ // NULL POINTER
+ int* p = NULL;
+
+ //Example
+ int main(){
+    int* p = NULL;
+    std::cout<<p;
+    std::cout<<*p; //This will give Segmentation Fault error ... Because we are trying to access those memomy which is not allowed ;
+    return 0;
+ }
+
+ // Pass by value vs Pass by referance 
+ int a=10;
+ int b =a; //pass by value (changes only in the copy of variable and not actual variable)
+ int* p =&a;// pass by referance [specifically POINTER and referances] (direct change in the main memory/location of the variable)
+
+ //ARRAY POINTER
+
+ Array is a pointer (constent pointer)
+
+ //example:
+    int MyArr[]={1,2,3,4,5}
+    cout<<MyArr; // will retuen the address of it first index (like 0xf252f9) 
+    cout<<*MyArr// will return 1 , the 0th index
