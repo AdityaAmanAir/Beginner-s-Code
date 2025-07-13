@@ -7,8 +7,15 @@ void modify(int& x) {  // '&' means reference
 }
 
 int main() {
-    int num = 10;
-    modify(num);
-    cout << "Outside function (original num): " << num << endl;
-    return 0;
+    int a=-1;
+    int b =0, c=1;
+    if(a){
+        cout<<a;
+    }
+    if(b){
+        cout<<b;
+    }
+    if(c){
+        cout<<c;
+    }
 }
