@@ -708,3 +708,128 @@ int** p3 =&p;
     int MyArr[]={1,2,3,4,5}
     cout<<MyArr; // will retuen the address of it first index (like 0xf252f9) 
     cout<<*MyArr// will return 1 , the 0th index
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int b=10;
+int arr[]={1,2,3,4};
+arr* =&b;
+    return 0;
+    
+}
+//arr(pointer) address cannot be modified 
+
+//every Array is a pointer but every pointer is not an array
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int p[5]={0,1,2,3,4};
+    cout<<&p<<endl; // 0x7ffc709981a0
+    cout<<*p<<endl; // 0
+}
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int a=10;
+    int* p=&a;
+    cout<<a<<endl; //10
+    cout<<&a<<endl; //0x7ffe0f6fd5ac
+    a++;
+    cout<<a<<endl; //11
+    cout<<&a<<endl;//0x7ffe0f6fd5ac
+
+    cout<<p<<endl;//0x7ffe0f6fd5ac
+    cout<<&p<<endl;//0x7ffe0f6fd5b0
+    cout<<*p<<endl;//11
+    p++; // P STORES LOCATION + 4 BITES(BEC. POINTER IS INT)
+    cout<<p<<endl;//0x7ffe0f6fd5b0
+    cout<<&p<<endl;//0x7ffe0f6fd5b0
+    cout<<*p<<endl;//258987440
+
+    cout<<a<<endl; //11
+    cout<<&a<<endl;//0x7ffe0f6fd5ac
+    a++;
+    cout<<a<<endl;//12
+    cout<<&a<<endl;///0x7ffe0f6fd5ac
+
+    cout<<"-----------------"<<endl;
+    *p= *p+5555;
+    cout<<a<<endl;
+    cout<<&a<<endl;
+    cout<<*p<<endl;
+    cout<<p<<endl;
+    cout<<&p<<endl;
+
+//     aditya-aman@aditya-aman-LINUX:~/All Repository/Beginner-s-Code$ g++ -std=c++17 c++/rough/erase.cpp && ./a.out
+// 10
+// 0x7ffd26da7bec
+// 11
+// 0x7ffd26da7bec
+// 0x7ffd26da7bec
+// 0x7ffd26da7bf0
+// 11
+// 0x7ffd26da7bf0
+// 0x7ffd26da7bf0
+// 651852784
+// 11
+// 0x7ffd26da7bec
+// 12
+// 0x7ffd26da7bec
+// -----------------
+// 12
+// 0x7ffd26da7bec
+// Segmentation fault (core dumped)
+// aditya-aman@aditya-aman-LINUX:~/All Repository/Beginner-s-Code$ g++ -std=c++17 c++/rough/erase.cpp && ./a.out
+// 10
+// 0x7ffeaf03880c
+// 11
+// 0x7ffeaf03880c
+// 0x7ffeaf03880c
+// 0x7ffeaf038810
+// 11
+// 0x7ffeaf038810
+// 0x7ffeaf038810
+// -1358723056
+// 11
+// 0x7ffeaf03880c
+// 12
+// 0x7ffeaf03880c
+// -----------------
+// 12
+// 0x7ffeaf03880c
+// 1818321775
+// 0x7ffeaf039dc3
+// 0x7ffeaf038810
+
+}
+
+//POINTER ARITHEMATIC 
+p++ , p--, --p, ++p ... //the pointer point to next index .. like first int* p =myArray[0], p++ , p = address of myArray[1], ++p , p = address of myArray[2];
+
+// pointer Subtraction 
+Addition of 2 pointers are not allowed!!!! (p1 +p2) x (wrong)!!!
+BUT
+Subtraction of 2 pointers are allowed (p2- p1) //right .... it willl give the size of the array's data type
+
+//POINTER COMPARISION  (relation operators)is allowed
+==,<=,>,<,>=,!=
+
+int arr[]={10,20,30,40,50};
+int *p =&arr;
+cout<< *(p+3);
+cout<< *(p+1);
+cout<< *(p);
+
+
+//BINARY SEARCH ALGORITHM 
+only applied of shorted(ass. dess.) array
+

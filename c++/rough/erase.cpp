@@ -1,21 +1,11 @@
 #include <iostream>
 using namespace std;
 
-void modify(int& x) {  // '&' means reference
-    x = 20;  // Changes the original variable
-    cout << "Inside function (modified x): " << x << endl;
-}
-
 int main() {
-    int a=-1;
-    int b =0, c=1;
-    if(a){
-        cout<<a;
-    }
-    if(b){
-        cout<<b;
-    }
-    if(c){
-        cout<<c;
-    }
+   int arr[]={10,20,30,40,50};
+int*p = arr;
+cout<< *(p+3)<<endl;
+cout<< *(p+1)<<endl;
+cout<< *(p)<<endl;
+return 0;
 }
