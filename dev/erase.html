@@ -3,11 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursor101 - Glowing Cursor Effect</title>
-    <link rel="stylesheet" href="erase.css">
+    <title>Discord Code Block</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/discord.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #36393f 0%, #2f3136 100%);
+            padding: 20px;
+        }
+        
+        .discord-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #36393f;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .discord-header {
+            background-color: #2f3136;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #202225;
+        }
+        
+        .discord-logo {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+        
+        .discord-title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .discord-channel {
+            color: #8e9297;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+        
+        .message-container {
+            padding: 16px;
+        }
+        
+        .message {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #5865f2;
+            margin-right: 16px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .message-content {
+            flex-grow: 1;
+        }
+        
+        .author {
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .timestamp {
+            color: #72767d;
+            font-size: 12px;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+        
+        .text {
+            color: #dcddde;
+            line-height: 1.375;
+        }
+        
+        .code-block {
+            background-color: #2f3136;
+            border-radius: 4px;
+            margin: 8px 0;
+            overflow: hidden;
+            border: 1px solid #202225;
+        }
+        
+        .code-header {
+            background-color: #202225;
+            padding: 8px 16px;
+            color: #fff;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copy-btn {
+            background: #4f545c;
+            border: none;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: #5d6269;
+        }
+        
+        pre {
+            margin: 0;
+            padding: 16px;
+            overflow-x: auto;
+        }
+        
+        code.hljs {
+            background: #2f3136;
+            padding: 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .hljs-meta {
+            color: #b9bbbe;
+        }
+        
+        .hljs-keyword {
+            color: #ff7b72;
+        }
+        
+        .hljs-type {
+            color: #ff7b72;
+        }
+        
+        .hljs-title {
+            color: #d2a8ff;
+        }
+        
+        .hljs-string {
+            color: #a5d6ff;
+        }
+        
+        .hljs-number {
+            color: #79c0ff;
+        }
+        
+        .hljs-built_in {
+            color: #ffa657;
+        }
+        
+        .hljs-comment {
+            color: #8b949e;
+        }
+        
+        .discord-footer {
+            background-color: #2f3136;
+            padding: 16px;
+            border-top: 1px solid #202225;
+            display: flex;
+            align-items: center;
+        }
+        
+        .input {
+            background-color: #40444b;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: #dcddde;
+            flex-grow: 1;
+            margin-right: 16px;
+        }
+        
+        .input:focus {
+            outline: none;
+        }
+        
+        .send-btn {
+            background-color: #5865f2;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        
+        .send-btn:hover {
+            background-color: #4752c4;
+        }
+    </style>
 </head>
 <body>
-    <div class="cursor101" id="cursor101"></div>
-    <script src="erase.js"></script>
+    <div class="discord-container">
+        <div class="discord-header">
+            <svg class="discord-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09c-.01-.02-.04-.03-.07-.03c-1.5.26-3 .71-4.33 1.33c-.01 0-.02.01-.03.02C2.44 8.7 1.86 12 2.19 15.28c0 .02.01.04.03.05c1.58 1.15 3.12 1.84 4.65 2.3c.03.01.06 0 .07-.02c.4-.55.76-1.13 1.07-1.74c.02-.04 0-.08-.04-.09c-.57-.22-1.11-.48-1.64-.78c-.04-.02-.04-.08-.01-.11c.11-.08.22-.17.33-.25c.02-.02.05-.02.07-.01c3.44 1.57 7.15 1.57 10.55 0c.02-.01.05-.01.07.01c.11.09.22.17.33.26c.04.03.04.09-.01.11c-.52.31-1.07.56-1.64.78c-.04.01-.05.06-.04.09c.32.61.68 1.19 1.07 1.74c.03.01.06.02.09.01c1.53-.46 3.07-1.15 4.65-2.3c.02-.01.03-.03.03-.05c.4-3.76-.66-7-2.19-9.93c-.01-.01-.02-.02-.04-.02zM8.95 13.25c-.99 0-1.8-.9-1.8-2.02s.8-2.02 1.8-2.02c1 0 1.81.9 1.8 2.02c0 1.12-.8 2.02-1.8 2.02zm6.1 0c-.99 0-1.8-.9-1.8-2.02s.8-2.02 1.8-2.02c1 0 1.81.9 1.8 2.02c0 1.12-.8 2.02-1.8 2.02z"/>
+            </svg>
+            <h1 class="discord-title">Discord<span class="discord-channel">#code-showcase</span></h1>
+        </div>
+        
+        <div class="message-container">
+            <div class="message">
+                <div class="avatar">C++</div>
+                <div class="message-content">
+                    <div class="author">CodeEnthusiast<span class="timestamp">Today at 3:24 PM</span></div>
+                    <div class="text">Here's my C++ code that prints "Hello, Discord!" to the console:</div>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>cpp</span>
+                            <button class="copy-btn" onclick="copyCode()">Copy</button>
+                        </div>
+                        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, Discord!" &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+                    </div>
+                    
+                    <div class="text">This is a simple example of a C++ program. The <code>main()</code> function is the entry point of the program.</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="avatar">Bot</div>
+                <div class="message-content">
+                    <div class="author">CodingBot<span class="timestamp">Today at 3:26 PM</span></div>
+                    <div class="text">Nice example! Here's how you might modify it to accept user input:</div>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>cpp</span>
+                            <button class="copy-btn" onclick="copyCode2()">Copy</button>
+                        </div>
+                        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string name;
+    std::cout &lt;&lt; "Enter your name: ";
+    std::cin &gt;&gt; name;
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "! Welcome to Discord!" &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="discord-footer">
+            <input type="text" class="input" placeholder="Message #code-showcase">
+            <button class="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function copyCode() {
+            const code = `#include <iostream>
+
+int main() {
+    std::cout << "Hello, Discord!" << std::endl;
+    return 0;
+}`;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+        
+        function copyCode2() {
+            const code = `#include <iostream>
+#include <string>
+
+int main() {
+    std::string name;
+    std::cout << "Enter your name: ";
+    std::cin >> name;
+    std::cout << "Hello, " << name << "! Welcome to Discord!" << std::endl;
+    return 0;
+}`;
+            navigator.clipboard.writeText(code).then(() => {
+                const buttons = document.querySelectorAll('.copy-btn');
+                buttons[1].textContent = 'Copied!';
+                setTimeout(() => {
+                    buttons[1].textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
