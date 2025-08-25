@@ -829,7 +829,57 @@ cout<< *(p+3);
 cout<< *(p+1);
 cout<< *(p);
 
+These two lines are commonly used in C++ to optimize input/output performance, especially in competitive programming:
+std::ios_base::sync_with_stdio(false);
+
+What it does: Disables synchronization between C++ streams (cin, cout, cerr, clog) and C standard I/O functions (printf, scanf, gets, etc.).
+
+Why use it:
+
+    Performance boost: By default, C++ streams are synchronized with C I/O for safety, which adds overhead
+
+    Faster I/O: After disabling synchronization, C++ streams become much faster (can be 2-5x faster)
+
+    Trade-off: You can no longer mix C++ streams with C I/O functions in the same program
+
+std::cin.tie(NULL);
+
+What it does: Unties cin from cout, meaning they won't be automatically flushed before each input operation.
+
+Why use it:
+
+    Performance boost: Eliminates unnecessary flushing of the output buffer before reading input
+
+    More control: You manually control when output should be flushed using std::cout.flush() or std::endl
+
+Typical Usage:
+cpp
+
+#include <iostream>
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
+    
+    // Now cin/cout are much faster
+    int n;
+    std::cin >> n;
+    std::cout << "Number: " << n << "\n"; // Use '\n' instead of endl for speed
+    
+    return 0;
+}
+
+Important Notes:
+
+    Use this only at the beginning of main()
+
+    Don't mix C++ streams with C I/O after sync_with_stdio(false)
+
+    Use '\n' instead of std::endl for even better performance
+
+    These optimizations are most beneficial when dealing with large amounts of input/output data
+
+This combination is essential for competitive programming where I/O performance can make the difference between passing and failing time limits.
 
 //BINARY SEARCH ALGORITHM 
-only applied of shorted(ass. dess.) array
-
+only applied on shorted(assending or dess.) array
