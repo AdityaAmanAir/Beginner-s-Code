@@ -426,9 +426,10 @@ if(X=420){
 
 --long = will give >=4 bits = 8 byte
 --short = will make it of 2 bytes
---long long
+--long long =will make it minumun  8 bytes or above 
 --signed = by defalt all the number comes with MSB 
 --unsigned = will remove the MSB and make it unsigned, this is done general due tho increase the space. 
+-- note : long is an system dependent DTM, it garentied minimum 4 bytes , depending on the system it can be 4 or 8.... where as long is will give minumum 8 bytes  or above 
 
 NOTE##*/
 #include <iostream>

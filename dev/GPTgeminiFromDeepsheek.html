@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini AI Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: 95vh;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #4ca1af, #c4e0e5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .api-info {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+        
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chat-history {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 15px 20px;
+            border-radius: 18px;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+            position: relative;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .user-message {
+            background: linear-gradient(90deg, #4ca1af, #2c5364);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .ai-message {
+            background: rgba(255, 255, 255, 0.1);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message-icon {
+            position: absolute;
+            top: -12px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .user-icon {
+            right: 10px;
+            background: #2c5364;
+        }
+        
+        .ai-icon {
+            left: 10px;
+            background: #4ca1af;
+        }
+        
+        .input-container {
+            display: flex;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            gap: 15px;
+        }
+        
+        .message-input {
+            flex: 1;
+            padding: 16px 20px;
+            border-radius: 24px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .message-input:focus {
+            box-shadow: 0 0 0 2px rgba(76, 161, 175, 0.5);
+        }
+        
+        .send-button {
+            padding: 16px 28px;
+            border-radius: 24px;
+            border: none;
+            background: linear-gradient(90deg, #4ca1af, #2c5364);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .send-button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        
+        .send-button:active {
+            transform: scale(0.95);
+        }
+        
+        .typing-indicator {
+            display: none;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .typing-dots {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .typing-dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes typingAnimation {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .message-content {
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+            
+            .input-container {
+                flex-direction: column;
+            }
+            
+            .send-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gemini AI Chat</h1>
+            <p class="tagline">Powered by Google's Gemini API</p>
+            <p class="api-info">Your API key is ready to use</p>
+        </header>
+        
+        <div class="chat-container">
+            <div class="chat-history" id="chat-history">
+                <div class="message ai-message">
+                    <div class="message-icon ai-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        Hello! I'm your AI assistant powered by Google's Gemini. How can I help you today?
+                    </div>
+                </div>
+                
+                <div class="typing-indicator" id="typing-indicator">
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" class="message-input" id="message-input" placeholder="Type your message here..." autocomplete="off">
+                <button class="send-button" id="send-button">
+                    <i class="fas fa-paper-plane"></i>
+                    Send
+                </button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Note: Your API key is stored only in your browser and is never sent to our servers.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatHistory = document.getElementById('chat-history');
+            const messageInput = document.getElementById('message-input');
+            const sendButton = document.getElementById('send-button');
+            const typingIndicator = document.getElementById('typing-indicator');
+            
+            // API configuration
+            const API_KEY = 'AIzaSyDsf0-e-deQZFzTL1iYzW6_k7iZ1_-37Nw';
+            const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+            
+            // Function to add message to chat
+            function addMessage(text, isUser) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.classList.add(isUser ? 'user-message' : 'ai-message');
+                
+                const iconElement = document.createElement('div');
+                iconElement.classList.add('message-icon');
+                iconElement.classList.add(isUser ? 'user-icon' : 'ai-icon');
+                iconElement.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+                
+                const contentElement = document.createElement('div');
+                contentElement.classList.add('message-content');
+                contentElement.textContent = text;
+                
+                messageElement.appendChild(iconElement);
+                messageElement.appendChild(contentElement);
+                
+                chatHistory.insertBefore(messageElement, typingIndicator);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }
+            
+            // Function to show typing indicator
+            function showTyping() {
+                typingIndicator.style.display = 'block';
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }
+            
+            // Function to hide typing indicator
+            function hideTyping() {
+                typingIndicator.style.display = 'none';
+            }
+            
+            // Function to call Gemini API
+            async function callGeminiAPI(prompt) {
+                showTyping();
+                
+                try {
+                    const response = await fetch(`${API_URL}?key=${API_KEY}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: prompt
+                                }]
+                            }]
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`API error: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    if (data.error) {
+                        throw new Error(data.error.message);
+                    }
+                    
+                    const responseText = data.candidates[0].content.parts[0].text;
+                    addMessage(responseText, false);
+                } catch (error) {
+                    console.error('Error calling Gemini API:', error);
+                    addMessage('Sorry, there was an error processing your request. Please try again.', false);
+                } finally {
+                    hideTyping();
+                }
+            }
+            
+            // Event listener for send button
+            sendButton.addEventListener('click', function() {
+                const message = messageInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    messageInput.value = '';
+                    callGeminiAPI(message);
+                }
+            });
+            
+            // Event listener for Enter key
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendButton.click();
+                }
+            });
+            
+            // Focus on input field when page loads
+            messageInput.focus();
+            
+            // Add sample questions for quick testing
+            setTimeout(() => {
+                addMessage("Try asking: 'Explain how AI works in simple terms'", false);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
