@@ -1,3 +1,5 @@
 myenv/
-*.so
+__pycache__/
 *.pyc
+*.so
+*.egg-info/
