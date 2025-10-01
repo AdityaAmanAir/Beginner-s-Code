@@ -6,9 +6,10 @@ int main(){
     int b=12;
     //int c=&a;
     //int d=*a;
-    int &e=b;
+    int& e= b;
+    b=99;
     //int *f=b;
-    int *g=&a;
+    int* g=&a;
 cout<<a<<endl<<b<<endl<<e<<endl<<g<<endl<<&e<<endl<<*g;
 
     return 0;

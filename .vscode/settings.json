@@ -61,7 +61,12 @@
     "istream": "cpp",
     "ostream": "cpp",
     "ios": "cpp",
-    "array": "cpp"
+    "array": "cpp",
+    "span": "cpp",
+    "string_view": "cpp",
+    "*.inc": "cpp",
+    "string": "cpp",
+    "ranges": "cpp"
   },
   "github.copilot.enable": {
     "*": false,
