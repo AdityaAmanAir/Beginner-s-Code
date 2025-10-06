@@ -1,11 +1,3 @@
 #include <iostream>
 using namespace std;
-int main(){
-        int a{60};
-        int b(40);
-        int c[20];
-
-        cout<<a<<"\n"<<b<<"\n" <<c<<"\n"<<c;
-        
-    return 0;
-}
+int main(){return 1;}
