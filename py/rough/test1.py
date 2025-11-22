@@ -589,7 +589,7 @@ print(s1.varC)
 
 
 ##super()------method
-#super() method is used to access methods of thr parents class
+#super() method is used to access methods of the parents class
 
 ##class method
 @classmethod #decorator
