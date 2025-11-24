@@ -449,8 +449,8 @@ f.close
 #OOPS
 
 class lol123:    #this is class
-     work = "se3x"
-ss=lol()  #this is an onject from the class lol123
+    work = "se3x"
+ss=lol123()  #this is an object from the class lol123
 print(ss)
 print(ss.work)  
 
