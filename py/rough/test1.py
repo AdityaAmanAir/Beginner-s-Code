@@ -605,3 +605,243 @@ __add__ ## double dash in front and back of operator (well python already build 
 **#Note--- if you miss __ (double dash in back) it will become a private method of the class
 
 __(something)__ are called Dunder function
+
+
+
+
+# KEYWORDS IN PYTHON :
+
+### LINK : https://youtu.be/rKk8XPLysj8?si=4lA8K8gP57Rbudu4
+
+False
+await ##
+else
+import
+pass
+		
+
+None 
+break
+except ##
+in
+raise ##
+		
+
+		
+True
+class
+finally ##
+is
+return
+		
+
+and
+continue
+for
+lambda ##
+try   ##
+		
+
+		
+as
+def
+from
+nonlocal ##
+while
+		
+
+assert ##
+del ##
+global ##
+not
+with ##
+		
+
+		
+async ##
+elif
+if
+or
+yield ##
+
+
+a=0
+b=0
+def fun():
+    global a
+    a+=1
+    c=10
+    def nofun():
+        nonlocal c #only the nested variable and not the global
+
+
+
+
+# ALL BUILT-IN VARIABLE:
+
+#Basic Customization
+
+__new__, __init__, __del__
+
+#Rich Comparison
+
+__lt__, __le__, __eq__, __ne__, __gt__, __ge__
+
+#Arithmetic
+
+__add__, __sub__, __mul__, __matmul__, __truediv__, __floordiv__, __mod__, __divmod__, __pow__, __lshift__, __rshift__, __and__, __xor__, __or__
+
+#Reverse Arithmetic
+
+__radd__, __rsub__, __rmul__, __rmatmul__, __rtruediv__, __rfloordiv__, __rmod__, __rdivmod__, __rpow__, __rlshift__, __rrshift__, __rand__, __rxor__, __ror__
+
+#In-place Arithmetic
+
+__iadd__, __isub__, __imul__, __imatmul__, __itruediv__, __ifloordiv__, __imod__, __ipow__, __ilshift__, __irshift__, __iand__, __ixor__, __ior__
+
+#Type Conversion
+
+__int__, __float__, __complex__, __bool__, __index__
+
+#Container
+
+__len__, __length_hint__, __getitem__, __setitem__, __delitem__, __contains__
+
+#Iteration
+
+__iter__, __next__, __reversed__
+
+#Context Managers
+
+__enter__, __exit__
+
+#Descriptor
+
+__get__, __set__, __delete__, __set_name__
+
+#Pickling
+
+__getstate__, __setstate__, __reduce__, __reduce_ex__
+
+#Copy
+
+__copy__, __deepcopy__
+
+#Class Creation
+
+__init_subclass__, __class_getitem__, __mro_entries__
+
+#Attribute Access
+
+__getattr__, __getattribute__, __setattr__, __delattr__, __dir__
+
+#String Representation
+
+__repr__, __str__, __format__, __bytes__
+
+#Async
+
+__await__, __aiter__, __anext__, __aenter__, __aexit__
+
+#Pattern Matching (Python 3.10+)
+
+__match_args__
+
+#Module Level
+
+__name__, __file__, __doc__, __package__, __loader__, __spec__, __annotations__, __builtins__, __cached__
+
+#Miscellaneous
+
+__call__, __hash__, __sizeof__, __subclasshook__, __instancecheck__, __subclasscheck__
+
+#Slots
+
+__slots__
+
+#Weak Reference
+
+__weakref__
+
+#Final
+
+__final__
+
+
+# Basic Customization
+obj = object.__new__(MyClass)
+obj.__init__()
+obj.__del__()
+
+# Rich Comparison  
+(1).__lt__(2)      # 1 < 2
+(1).__le__(2)      # 1 <= 2
+(1).__eq__(2)      # 1 == 2
+(1).__ne__(2)      # 1 != 2
+(1).__gt__(2)      # 1 > 2
+(1).__ge__(2)      # 1 >= 2
+
+# Arithmetic
+(5).__add__(3)     # 5 + 3
+(5).__sub__(3)     # 5 - 3
+(5).__mul__(3)     # 5 * 3
+(5).__truediv__(3) # 5 / 3
+(5).__floordiv__(3) # 5 // 3
+(5).__mod__(3)     # 5 % 3
+(5).__pow__(3)     # 5 ** 3
+
+# Reverse Arithmetic
+x.__radd__(5)      # 5 + x
+
+# In-place Arithmetic
+x.__iadd__(3)      # x += 3
+
+# Type Conversion
+(5.7).__int__()    # int(5.7)
+(5).__float__()    # float(5)
+(5).__bool__()     # bool(5)
+
+# Container
+[1,2,3].__len__()          # len([1,2,3])
+[1,2,3].__getitem__(0)     # [1,2,3][0]
+[1,2,3].__setitem__(0, 99) # lst[0] = 99
+[1,2,3].__delitem__(0)     # del lst[0]
+[1,2,3].__contains__(2)    # 2 in [1,2,3]
+
+# Iteration
+[1,2,3].__iter__()         # iter([1,2,3])
+it.__next__()              # next(it)
+[1,2,3].__reversed__()     # reversed([1,2,3])
+
+# Context Managers
+file.__enter__()           # with open() as f
+file.__exit__()            # exit context
+
+# String Representation
+obj.__repr__()             # repr(obj)
+obj.__str__()              # str(obj)
+obj.__format__('s')        # format(obj, 's')
+
+# Miscellaneous
+func.__call__(*args)       # func(*args)
+obj.__hash__()             # hash(obj)
+obj.__sizeof__()           # sys.getsizeof(obj)
+
+
+####### link : https://chat.deepseek.com/share/nc9zuq1t9fm1qlyiie
+
+
+iter #(iterator)
+
+my_list = [10, 20, 30]  # An iterable
+my_iterator = iter(my_list) # Get an iterator from the list
+
+print(my_iterator) #list_iterator object at thss memory address
+
+print(next(my_iterator))  # Output: 10
+print(next(my_iterator))  # Output: 20
+print(next(my_iterator))  # Output: 30
+
+    # Trying to get the next element after exhaustion will raise StopIteration
+    # print(next(my_iterator))
+
