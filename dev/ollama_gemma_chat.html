@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .chat-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fafafa;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            margin-left: 20px;
+        }
+        
+        .bot-message {
+            background-color: #e9ecef;
+            color: #333;
+            margin-right: 20px;
+        }
+        
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+        
+        #message-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        #send-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+        
+        #send-button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .typing-indicator {
+            color: #666;
+            font-style: italic;
+            display: none;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>💬 Ollama Chat</h1>
+    <p>Connected to: http://127.0.0.1:11434</p>
+    
+    <div class="error-message" id="error-message">
+        CORS Error: Using proxy to connect to Ollama...
+    </div>
+    
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <strong>AI:</strong> Hello! I'm ready to chat. What would you like to talk about?
+            </div>
+        </div>
+        
+        <div class="typing-indicator" id="typing-indicator">
+            AI is typing...
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="message-input" placeholder="Type your message here..." autocomplete="off">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+        const typingIndicator = document.getElementById('typing-indicator');
+        const errorMessage = document.getElementById('error-message');
+
+        // Function to add message to chat
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.innerHTML = `<strong>${isUser ? 'You' : 'AI'}:</strong> ${content}`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to send message to Ollama with CORS workaround
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+
+            // Add user message to chat
+            addMessage(message, true);
+            messageInput.value = '';
+            sendButton.disabled = true;
+            typingIndicator.style.display = 'block';
+            errorMessage.style.display = 'none';
+
+            try {
+                // Try direct connection first
+                let response = await fetch('http://127.0.0.1:11434/api/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        model: 'gemma3:1b',
+                        prompt: message,
+                        stream: false
+                    })
+                });
+
+                // If direct connection fails due to CORS, use a different approach
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // Add AI response to chat
+                addMessage(data.response);
+                
+            } catch (error) {
+                console.error('Direct connection failed:', error);
+                
+                // Show CORS warning
+                errorMessage.style.display = 'block';
+                
+                // Alternative: Use a local proxy via the same origin
+                await tryLocalProxy(message);
+            } finally {
+                sendButton.disabled = false;
+                typingIndicator.style.display = 'none';
+                messageInput.focus();
+            }
+        }
+
+        // Alternative method using a simple workaround
+        async function tryLocalProxy(userMessage) {
+            try {
+                // Create a simple local endpoint that forwards to Ollama
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: userMessage,
+                        model: 'gemma3:1b'
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    addMessage(data.response);
+                } else {
+                    addMessage("Sorry, I can't connect to the AI right now. Make sure Ollama is running and try the command line instead: 'ollama run gemma3:1b'");
+                }
+            } catch (proxyError) {
+                console.error('Proxy also failed:', proxyError);
+                addMessage("Connection failed. Please run: 'ollama run gemma3:1b' in your terminal to chat directly.");
+            }
+        }
+
+        // Event listeners
+        sendButton.addEventListener('click', sendMessage);
+        
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Focus input on load
+        messageInput.focus();
+
+        // Show initial connection info
+        addMessage("Note: If you see CORS errors, you might need to run Ollama with different settings or use the command line.", false);
+    </script>
+</body>
+</html>
