@@ -16,3 +16,12 @@ print(s[2])  # Third character
 print(s[5]) # Last character
 print(s[-1])# Last character  NEGATIVE INDEX
 
+s="lolololol iit B lolv"
+print(s)
+print(s[0])
+print(s[-1])
+print(s[19])
+print(s[-20])
+# print(s[20]) # this will throw error
+# print(s[-21]) # this will throw error
+
