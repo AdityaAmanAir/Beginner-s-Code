@@ -845,3 +845,103 @@ print(next(my_iterator))  # Output: 30
     # Trying to get the next element after exhaustion will raise StopIteration
     # print(next(my_iterator))
 
+# ALL BUILT-IN METHODS AND FUNCTION(S):
+
+var="abcdefghijklmnopqrstuvwxyz 1234567890 jkl m JKL M N OPQ n opq abcdefghijklmnopqrstuvwxyz 1234567890"
+
+print(var.capitalize())
+print(var.center(100, '#'))
+
+print(var.count("mn",0,len(var)) )
+print(var.count("mn",))
+print(var.endswith("90",0,len(var)) )
+print(var.find("ab",0,len(var)) )
+print(var.index("bc",0,len(var)) )
+print(var.rfind("9",0,len(var)) )
+print(var.rindex("m",0,len(var)) )
+
+print(var.isalnum() )
+print(var.isalpha() )
+print(var.isascii )
+print(var.isdecimal )
+print(var.isdigit )
+print(var.isidentifier )
+print(var.islower )
+print(var.isprintable )
+print(var.isspace )
+print(var.istitle )
+print(var.isupper )
+
+print(len(var) )
+print(var.ljust(101,'#'))
+print(var.rjust(101,'*') )
+
+y=ord("R")
+x= chr(82)
+print(x,y)
+
+mylist=[1,2,3,4]
+print(mylist)
+mylist.append(5)
+print(mylist)
+print(mylist.count("1"))
+print(mylist.count(1))
+mylist.index(2)
+print(mylist)
+mylist.insert(69,"70")
+print(mylist)
+mylist.pop(2)
+print(mylist)
+list2=[0,9,8,7]
+
+print(id(mylist))
+print(id(list2))
+
+print(mylist+list2)
+print(mylist.extend(list2))
+
+print(id(mylist))
+print(id(list2))
+print(id(mylist.extend(list2)))
+
+
+print(id(1+2))
+print(id(3))
+
+mylist.remove(2)
+mylist.revese()
+mylist.sort()
+
+mylist.copy()
+max(mylist)
+min(mylist)
+mylist.clean()
+
+#ENUMERATE()
+X=[1,2,3,4,5,6,7,8,9,10,1,2,3,4,5]
+
+for index,value in enumerate(X):
+    print(index, value)
+
+for iv in X:
+    print(iv)   
+
+print(enumerate(X)) 
+
+def name(*name):
+    print(name)
+    print(id(name))
+
+name("lol", "gol","mol")
+print(id(name))
+#collect all positional arguments into a tuple
+
+ml=[1,2,3,4,5]
+ml1=[1,2,3,4,5]
+ml2=ml
+print(ml is ml1)
+print(ml is ml2)
+print(id(ml),id(ml1),id(ml2))
+ml3=ml[:]
+print(ml is ml3, id(ml3))
+
