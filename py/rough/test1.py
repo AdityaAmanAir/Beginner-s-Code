@@ -446,10 +446,10 @@ f.close
 
 
 
-#OOPS
+#OOPS #######################################################################################333
 
 class lol123:    #this is class
-    work = "se3x"
+    work = "se3x" #this is a class attribute
 ss=lol123()  #this is an object from the class lol123
 print(ss)
 print(ss.work)  
@@ -463,21 +463,23 @@ print(s1.n)
 
 #defalt  constructer 
 class s:
-    n="lol"
+    n="lol" #this is a class attribute
     def __init__(self): #this is defalt constructer
         pass
 
     def __init__(self,x,y): #this is perametarized constructer
-           sum=69
+           sum=69 # LOCAL variable (only exists in __init__) 
            print("parmetarized constructor")
 s1=s()
 print(s1)
 print(s1.n)
+print(sum)          # ❌ ERROR! sum doesn't exist h
  
 class Student:
     def __init__(self, name, mark):
-        self.name=name
-        self.mark=mark
+        self.name=name #this is a instance attribute
+        self.mark=mark #INSTANCE variable (saved with object) this is a class attribute
+           
 
     def get(self):
         sum = 0
@@ -488,7 +490,8 @@ class Student:
 s1 = Student("tony stark", [99, 98, 97])            
 s1.get() 
 
-
+NOTE: CLASS VARIABLE IS CREATED ONLY ONCE IN THE MEMORY REGARDLESS OF HOW MANY OBJECTS YOU CREATE... 
+INSTANCE ATTRIBUTE HAS HIGHER PREFEREANCE OVER CLASS ATTRIBUTRE... I.E. CLASS ATTRIBUT CANNOT OVERWRITE IF INSTANCE ATTRIBUTE IS SPECIFIED 
 ##########################################3
 
 class Student:
@@ -587,7 +590,7 @@ print(s1.varA)
 print(s1.varB)
 print(s1.varC)
 
-
+super()
 ##super()------method
 #super() method is used to access methods of the parents class
 
@@ -944,4 +947,122 @@ print(ml is ml2)
 print(id(ml),id(ml1),id(ml2))
 ml3=ml[:]
 print(ml is ml3, id(ml3))
+
+Escape	Name	        ASCII	    Description
+\t	    Tab	                9	    Horizontal tab
+\n	    Newline	           10	    Line feed (Unix/Linux/macOS newline)
+\r	    Carriage Return	   13	    Return to start of line (old Mac/Windows)
+\f	    Form Feed	       12	    Page break (printer)
+\v	    Vertical Tab	   11	    Vertical tabulation
+
+print("asdkvv\vlol")
+print("asdkvv\vlol")
+print("asdknn\nlol")
+print("asdktt\tlol")
+print("asdkff\flol", end="")
+print("987654321rr\r123")
+
+import re#############################################################################
+ctrl + click on module to see details ################################################
+######################################################################################
+string = 'hello 12 hi 89. Howdy 34'
+pattern = '\d+'
+result = re.findall(pattern, string)
+print(result)
+
+#Output: ['12', '89', '34']
+
+String = 'Twelve:12 Eighty nine:89'
+pattern = '\d+'
+
+result = re.split(pattern, String)
+print( result )
+
+#Output: [ 'Twelve:', ' Eighty nine:', ' . ' ]
+
+string =  string = 'abc 12\ de 23  \n f45 6'
+#matches all whitespace characters
+pattern = '\s+'
+
+#empty string
+replace = ' '
+
+new_string = re.sub(pattern, replace, string)
+
+
+import xyz
+import xyz as s
+from xyz import x
+from xyz import *
+from xyz import x, y, z
+
+#EXCEPTION HANDEING: ##########################################################################################################
+
+# Here are ALL 64+ built-in exceptions (as of Python 3.11+):
+
+ArithmeticError
+AssertionError
+AttributeError
+BaseException
+BaseExceptionGroup
+BlockingIOError
+BrokenPipeError
+BufferError
+BytesWarning
+ChildProcessError
+ConnectionAbortedError
+ConnectionError
+ConnectionRefusedError
+ConnectionResetError
+DeprecationWarning
+EOFError
+Exception
+ExceptionGroup
+FileExistsError
+FileNotFoundError
+FloatingPointError
+FutureWarning
+GeneratorExit
+ImportError
+ImportWarning
+IndentationError
+IndexError
+InterruptedError
+IsADirectoryError
+KeyError
+KeyboardInterrupt
+LookupError
+MemoryError
+ModuleNotFoundError
+NameError
+NotADirectoryError
+NotImplementedError
+OSError
+OverflowError
+PendingDeprecationWarning
+PermissionError
+ProcessLookupError
+RecursionError
+ReferenceError
+ResourceWarning
+RuntimeError
+RuntimeWarning
+StopAsyncIteration
+StopIteration
+SyntaxError
+SyntaxWarning
+SystemError
+SystemExit
+TabError
+TimeoutError
+TypeError
+UnboundLocalError
+UnicodeDecodeError
+UnicodeEncodeError
+UnicodeError
+UnicodeTranslateError
+UserWarning
+ValueError
+Warning
+ZeroDivisionError
 
