@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Domelink as an Architect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            position: relative;
+            height: 35vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        #hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.6) contrast(1.1);
+        }
+        .header-content {
+            z-index: 1;
+            padding: 0 40px;
+        }
+        .header-content h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+        .header-content p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .logo {
+            position: absolute;
+            top: 24px;
+            left: 48px;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            z-index: 2;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 48px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+        .mission-section {
+            text-align: center;
+            margin-bottom: 24px;
+            flex-shrink: 0;
+        }
+        .mission-section h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        .mission-section p {
+            font-size: 16px;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto 12px;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 800px;
+            flex: 1;
+            background: white;
+            padding: 24px;
+            border-radius: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+            min-height: 0;
+        }
+        .thank-you {
+            display: none;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            flex-direction: column;
+        }
+        .thank-you h2 {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">DOMELINK</div>
+    <div class="container">
+        <header>
+            <img id="hero-bg" src="https://images.pexels.com/photos/30956282/pexels-photo-30956282/free-photo-of-modern-minimalist-urban-architecture-shot.jpeg" alt="Minimalist Architecture Background">
+            <div class="header-content">
+                <h1>Join Domelink as an Architect</h1>
+                <p>Showcase your work, collaborate with peers, and connect with clients to bring visionary projects to life.</p>
+            </div>
+        </header>
+
+        <section class="main-content">
+            <div class="mission-section">
+                <h2>Our Mission</h2>
+                <p>Domelink connects architecture and urban clients with talented professionals to design and build their dream projects, ensuring trusted, safe, and secure communication along with reliable contracts.</p>
+                
+                <h2>Why Join Us?</h2>
+                <p>Become part of a vibrant platform where architects can showcase stunning portfolios, collaborate seamlessly on shared projects, and connect securely with clients for groundbreaking design opportunities.</p>
+                <p>Gain visibility, build partnerships, and contribute to innovative architectural excellence while enjoying protected communications and fair collaborations.</p>
+            </div>
+
+            <div class="form-container" id="form-section">
+                <!-- Replace with your actual Google Form embed URL -->
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSepE3WpIcBmx_A98SFw_RwInB5GG_eqskjETsTDl8w5EMD_FA/viewform" allowfullscreen>Loading…</iframe>
+            </div>
+
+            <div class="thank-you" id="thank-you">
+                <h2>Thank You!</h2>
+                <p>Your application has been submitted successfully.<br>We will review it and get back to you soon.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Optional detection of form submission (if Google Form uses URL parameters)
+        if (window.location.search.includes('formResponse')) {
+            document.getElementById('form-section').style.display = 'none';
+            document.getElementById('thank-you').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

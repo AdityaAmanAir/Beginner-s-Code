@@ -10,3 +10,4 @@ myenv/
 *.pyo
 .venv/
 .vscode
+stocks_env
